@@ -42,3 +42,7 @@ next-env.d.ts
 
 # nodemodules
 node_modules
+
+# test projects 
+projects/mvp-walkthrough
+projects/vision-walkthrough
