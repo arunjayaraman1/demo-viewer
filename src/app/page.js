@@ -96,17 +96,17 @@ export default function PortalPage() {
           </div>
         ) : (
           <div>
-            <svg className="np-icon" width="40" height="40" viewBox="0 0 100 100" fill="none" style={{ margin: '0 auto 20px', display: 'block' }}>
-              <path d="M10 20 L55 50 L10 80 L26 50 Z" fill="var(--np-teal)"/>
-              <path d="M26 50 L55 50 L38 26 Z" fill="var(--np-deep-teal)"/>
-              <path d="M26 50 L55 50 L38 74 Z" fill="var(--np-orange)"/>
-              <path d="M55 50 L90 50 L72 30 Z" fill="var(--np-gold)"/>
+            <svg className="np-icon" width="40" height="40" viewBox="0 0 32 32" fill="none" style={{ margin: '0 auto 20px', display: 'block' }}>
+              <path fillRule="evenodd" clipRule="evenodd" d="M10.6667 0H21.3333H32L21.3333 10.6667H10.6667H0L10.6667 0Z" fill="#08BDB8"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M21.3281 10.6667V21.3333V32L31.9948 21.3333V10.6667V0L21.3281 10.6667Z" fill="#FFCF36"/>
+              <path d="M21.3281 0V10.6667L31.9948 0H21.3281Z" fill="#008C85"/>
+              <path d="M21.3281 10.6667H31.9948V0L21.3281 10.6667Z" fill="#FF7F1F"/>
             </svg>
             <div style={{ fontFamily: 'var(--font-mono)', fontSize: '12px', fontWeight: 500, letterSpacing: '2px', textTransform: 'uppercase', color: 'var(--np-teal-700)', marginBottom: '10px' }}>
               Secure Access
             </div>
             <h1 style={{ fontFamily: 'var(--font-display)', fontSize: '30px', fontWeight: 600, letterSpacing: '-1px', color: 'var(--text-strong)', margin: '0 0 10px' }}>
-              Demo portal
+              Showcase
             </h1>
             <p style={{ fontSize: '15px', color: 'var(--text-body)', lineHeight: 1.55, margin: '0 0 32px' }}>
               Enter your access code to view confidential client walkthroughs and pitch decks.

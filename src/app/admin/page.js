@@ -355,8 +355,11 @@ export default function AdminPage() {
           }}
         >
           <div style={{ width: '48px', height: '48px', borderRadius: 'var(--radius-sm)', background: 'var(--surface-tint)', display: 'flex', alignItems: 'center', justifyContent: 'center', margin: '0 auto 20px' }}>
-            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="var(--np-teal-700)" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" className="np-icon">
-              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            <svg className="np-icon" width="28" height="28" viewBox="0 0 32 32" fill="none">
+              <path fillRule="evenodd" clipRule="evenodd" d="M10.6667 0H21.3333H32L21.3333 10.6667H10.6667H0L10.6667 0Z" fill="#08BDB8"/>
+              <path fillRule="evenodd" clipRule="evenodd" d="M21.3281 10.6667V21.3333V32L31.9948 21.3333V10.6667V0L21.3281 10.6667Z" fill="#FFCF36"/>
+              <path d="M21.3281 0V10.6667L31.9948 0H21.3281Z" fill="#008C85"/>
+              <path d="M21.3281 10.6667H31.9948V0L21.3281 10.6667Z" fill="#FF7F1F"/>
             </svg>
           </div>
           <h2 style={{ fontFamily: 'var(--font-display)', fontSize: '22px', fontWeight: 600, color: 'var(--text-strong)', margin: '0 0 8px' }}>
