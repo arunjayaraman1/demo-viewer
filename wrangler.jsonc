@@ -5,10 +5,11 @@
   "observability": {
     "enabled": true
   },
-  "assets": {
-    "not_found_handling": "single-page-application"
-  },
-  "compatibility_flags": [
-    "nodejs_compat"
+  "d1_databases": [
+    {
+      "binding": "DB",
+      "database_name": "demo-portal-db",
+      "database_id": "bfd0d7b2-ec90-41ab-85cf-255d8f63ab8f"
+    }
   ]
 }

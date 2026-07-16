@@ -1,0 +1,478 @@
+<div id="app">
+  <aside class="sidebar">
+    <div class="brand">
+      <span class="brand-mark">◑</span>
+      <div class="brand-text"><strong>Assurance Platform</strong><span>STLC Assurance Line</span></div>
+    </div>
+    <nav class="nav" aria-label="Primary">
+      <button class="nav-item active" data-view="dashboard"><svg viewBox="0 0 24 24" class="ic"><rect x="3" y="3" width="7" height="9"/><rect x="14" y="3" width="7" height="5"/><rect x="14" y="12" width="7" height="9"/><rect x="3" y="16" width="7" height="5"/></svg>Dashboard</button>
+      <button class="nav-item" data-view="applications"><svg viewBox="0 0 24 24" class="ic"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>Applications</button>
+      <button class="nav-item" data-view="skills"><svg viewBox="0 0 24 24" class="ic"><path d="M12 2l2.5 5 5.5.8-4 3.9.9 5.5L12 20.5 7.1 17.2l.9-5.5-4-3.9L9.5 7z"/></svg>Skills</button>
+      <button class="nav-item" data-view="integrations"><svg viewBox="0 0 24 24" class="ic"><path d="M10 13a5 5 0 0 0 7 0l3-3a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-3 3a5 5 0 0 0 7 7l1-1"/></svg>Integrations</button>
+      <div class="nav-sep"></div>
+      <button class="nav-item" data-view="team"><svg viewBox="0 0 24 24" class="ic"><circle cx="9" cy="8" r="3"/><path d="M3 20c0-3 3-5 6-5s6 2 6 5"/><path d="M16 11a3 3 0 0 0 0-6"/></svg>Team</button>
+      <button class="nav-item" data-view="settings"><svg viewBox="0 0 24 24" class="ic"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.6 1.6 0 0 0 .3 1.8 2 2 0 1 1-2.8 2.8 1.6 1.6 0 0 0-2.7 1.1 2 2 0 1 1-4 0 1.6 1.6 0 0 0-2.3-1.1 2 2 0 1 1-2.8-2.8A1.6 1.6 0 0 0 2.6 15a2 2 0 1 1 0-4 1.6 1.6 0 0 0 1.5-2.3 2 2 0 1 1 2.8-2.8A1.6 1.6 0 0 0 10 4.6a2 2 0 1 1 4 0 1.6 1.6 0 0 0 2.7 1.1 2 2 0 1 1 2.8 2.8A1.6 1.6 0 0 0 21.4 11a2 2 0 1 1 0 4z"/></svg>Settings</button>
+    </nav>
+    <div class="sidebar-foot"><div class="kitver"><span class="dot ok"></span> skills v0.4.1 <span class="muted">· up to date</span></div></div>
+  </aside>
+
+  <div class="main">
+    <header class="topbar">
+      <div class="crumbs">
+        <span class="crumb-here" id="crumb">Dashboard</span>
+      </div>
+      <div class="top-actions">
+        <button class="icon-btn" id="themeBtn" title="Toggle theme" aria-label="Toggle theme"><svg viewBox="0 0 24 24" class="ic"><path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"/></svg></button>
+        <div class="me"><span class="avatar">SC</span><div class="me-text"><strong>Srish C.</strong><span class="muted">QA Engineer</span></div></div>
+      </div>
+    </header>
+
+    <main class="content">
+
+      <!-- ============ DASHBOARD ============ -->
+      <section class="view active" id="view-dashboard">
+        <div class="welcome">
+          <div>
+            <strong>You're a QA on PfizerForAll 👋</strong>
+            <p>Assurance is set up for this app <span class="muted">(Playwright · staging)</span>. <b>Medication Savings Finder</b> is passing; <b>Newsletter Sign-up</b> is ready to validate.</p>
+          </div>
+          <button class="btn primary" data-view-go="application">Validate a feature</button>
+        </div>
+
+        <div class="page-head"><div><h1>Portfolio</h1><p class="sub">Assurance health across your applications.</p></div></div>
+
+        <div class="kpis">
+          <div class="kpi"><span class="kpi-label">Applications</span><span class="kpi-val">1</span></div>
+          <div class="kpi"><span class="kpi-label">Passing</span><span class="kpi-val good">1</span><span class="kpi-spark" data-spark="40,100,100"></span></div>
+          <div class="kpi"><span class="kpi-label">Ready to validate</span><span class="kpi-val warn">1</span></div>
+          <div class="kpi"><span class="kpi-label">In development</span><span class="kpi-val">2</span></div>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>PfizerForAll</h2><span class="muted">patient access web · 4 features</span></div>
+          <button class="approw live" data-view-go="application">
+            <div class="approw-main"><span class="status-dot ok"></span><strong>Open application</strong><span class="pill neutral">1 passing · 1 ready · 2 in dev</span></div>
+            <div class="approw-meta"><span class="mono">github.com/pfizerforall/pfizerforall-web</span><span class="link-accent">View features →</span></div>
+          </button>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>How validating a feature works</h2></div>
+          <div class="attn"><span class="pill accent">1</span><div><strong>Pick a dev-complete feature</strong><p class="muted small">From the app's Jira epics — assurance &amp; the test repo are already set up.</p></div></div>
+          <div class="attn"><span class="pill neutral">2</span><div><strong>Author &amp; approve the BDD cases</strong><p class="muted small">Run <span class="mono">/assure-context → /assure-author</span>; the PO approves the gate.</p></div></div>
+          <div class="attn"><span class="pill neutral">3</span><div><strong>Automate, self-heal, run in CI</strong><p class="muted small">Your framework; evidence lands here from BrowserStack.</p></div></div>
+        </div>
+      </section>
+
+      <!-- ============ APPLICATIONS LIST ============ -->
+      <section class="view" id="view-applications">
+        <div class="page-head"><div><h1>Applications</h1><p class="sub">Products under assurance. Each connects a repo, a Jira project, and an environment; features sync from Jira.</p></div><button class="btn primary" data-view-go="connect">+ Add application</button></div>
+        <div class="cards-grid">
+          <button class="card applink" data-view-go="application">
+            <div class="integ-top"><strong>PfizerForAll</strong><span class="pill neutral">2 ready · 2 in dev</span></div>
+            <p class="muted small">Patient access web · Jira SAA · Staging</p>
+            <span class="link-accent small">Open →</span>
+          </button>
+          <button class="card applink ghost" data-view-go="connect">
+            <div class="integ-top"><strong>+ Add application</strong></div>
+            <p class="muted small">Connect a repo, Jira project &amp; environment. Usually a one-time, lead/admin step.</p>
+          </button>
+        </div>
+      </section>
+
+      <!-- ============ CONNECT APPLICATION (create the project) ============ -->
+      <section class="view" id="view-connect">
+        <div class="wiz-head"><div><h1>Add application</h1><p class="sub">Connect a product so its features can be assured. Usually done once by a lead/admin.</p></div><button class="btn ghost sm" data-view-go="applications">✕ Cancel</button></div>
+        <div class="wizbody">
+          <div class="field"><label>Application name</label><div class="input-fake">PfizerForAll</div></div>
+          <div class="field"><label>Code repository (GitHub)</label><div class="select-fake">pfizerforall/pfizerforall-web ▾</div><span class="muted small">The application's source repo — not the test repo (that's created per feature).</span></div>
+          <div class="field"><label>Issue tracker (Jira project)</label><div class="select-fake">SAA — STLC AI Automation ▾</div><span class="muted small">Features = epics in this project, pulled automatically.</span></div>
+          <div class="field"><label>Environment(s)</label><div class="input-fake mono">Staging · staging.pfizerforall.com</div><span class="muted small">Where dev-complete features are deployed for validation. <span class="link-accent">+ add environment</span></span></div>
+          <div class="field"><label>BrowserStack</label><div class="select-fake">PfizerForAll · Test Management + Observability ▾</div><span class="muted small">Test Management holds the approved manual BDD cases; Observability holds run evidence.</span></div>
+        </div>
+        <div class="wizfoot"><button class="btn ghost" data-view-go="applications">Back</button><span class="muted small">Connect once · features then sync from Jira</span><button class="btn primary" data-view-go="application">Create application</button></div>
+      </section>
+
+      <!-- ============ APPLICATION (PfizerForAll) ============ -->
+      <section class="view" id="view-application">
+        <div class="page-head">
+          <div><h1>PfizerForAll</h1><p class="sub">Patient access web · <span class="mono">github.com/pfizerforall/pfizerforall-web</span></p></div>
+          <button class="btn ghost" data-onboard="start">Manage assurance</button>
+        </div>
+
+        <div class="grid-3">
+          <div class="card mini"><span class="mini-label">Code</span><strong class="mono">pfizerforall-web</strong><span class="muted small">GitHub · connected</span></div>
+          <div class="card mini"><span class="mini-label">Environment</span><strong>Staging</strong><span class="muted small mono">staging.pfizerforall.com</span></div>
+          <div class="card mini"><span class="mini-label">Tracker</span><strong>Jira · SAA</strong><span class="muted small">epics = features</span></div>
+        </div>
+
+        <div class="card assbar">
+          <div class="assbar-l"><span class="pill ok">Assurance set up</span><strong>Playwright (TS)</strong><span class="muted small">chromium·firefox·webkit × ubuntu·windows · repo <span class="mono">pfizerforall-tests</span></span></div>
+          <button class="btn ghost sm" data-onboard="start">Manage</button>
+        </div>
+
+        <div class="card">
+          <div class="card-head"><h2>Features</h2><span class="muted">synced from Jira SAA · active sprint 3</span></div>
+          <div class="table-wrap"><table class="table feat">
+            <thead><tr><th>Feature (epic)</th><th>Sprint</th><th>Dev</th><th>Assurance</th><th></th></tr></thead>
+            <tbody>
+              <tr><td><strong>Medication Savings Finder</strong><div class="muted small">SAA-1 · search → tailored savings</div></td><td>1–2</td><td><span class="pill ok">Done</span></td><td><span class="pill ok">passing</span></td><td><button class="btn sm" data-view-go="feature">View</button></td></tr>
+              <tr><td><strong>Newsletter Sign-up</strong><div class="muted small">SAA-20 · footer subscribe + validation</div></td><td>1–2</td><td><span class="pill ok">Done</span></td><td><span class="pill neutral">not validated</span></td><td><button class="btn sm primary" data-view-go="feature">Validate</button></td></tr>
+              <tr class="dim"><td><strong>Talk to a Doctor</strong><div class="muted small">SAA-30 · condition routing</div></td><td>3</td><td><span class="pill neutral">In development</span></td><td><span class="pill neutral">—</span></td><td><span class="muted small">awaiting dev</span></td></tr>
+              <tr class="dim"><td><strong>AI Health Answers</strong><div class="muted small">SAA-40 · Q&amp;A surface</div></td><td>3</td><td><span class="pill neutral">In development</span></td><td><span class="pill neutral">—</span></td><td><span class="muted small">awaiting dev</span></td></tr>
+            </tbody>
+          </table></div>
+          <p class="muted small mt">Tip: set up assurance for a feature as soon as it's dev-complete and deployed — even while later features are still being built.</p>
+        </div>
+      </section>
+
+      <!-- ============ ONBOARDING WIZARD ============ -->
+      <section class="view" id="view-onboard">
+        <div class="wiz-head">
+          <div><h1>Set up assurance</h1><p class="sub">PfizerForAll · one-time project setup</p></div>
+          <button class="btn ghost sm" data-view-go="application">✕ Cancel</button>
+        </div>
+
+        <ol class="stepper" id="stepper">
+          <li class="sp active" data-for="1"><span>1</span>Framework</li>
+          <li class="sp" data-for="2"><span>2</span>Matrix &amp; env</li>
+          <li class="sp" data-for="3"><span>3</span>Test repo</li>
+          <li class="sp" data-for="4"><span>4</span>Review</li>
+        </ol>
+
+        <div class="wizbody">
+          <div class="wizstep active" data-step="1">
+            <h2 class="wq">Choose your E2E framework</h2>
+            <p class="muted small mb">Author behaviour <b>once</b> in Gherkin; we generate this framework's suite. Pick <b>one</b> — you can switch later (a profile change, not a rewrite).</p>
+            <div class="opts grid">
+              <button class="opt sel" data-pick="framework" data-val="Playwright (TS)"><div class="opt-main"><strong>Playwright</strong><span class="check">✓</span></div><span class="muted small">TypeScript · playwright-bdd</span></button>
+              <button class="opt" data-pick="framework" data-val="pytest-bdd (Py)"><div class="opt-main"><strong>pytest-bdd</strong><span class="check">✓</span></div><span class="muted small">Python · pytest-playwright</span></button>
+              <div class="opt disabled"><div class="opt-main"><strong>Cypress</strong><span class="pill neutral xs">request</span></div><span class="muted small">JavaScript · roadmap</span></div>
+              <div class="opt disabled"><div class="opt-main"><strong>Selenium</strong><span class="pill neutral xs">request</span></div><span class="muted small">Java/Python · roadmap</span></div>
+            </div>
+            <div class="subhead2">Test types</div>
+            <div class="chiprow">
+              <span class="chip sel">E2E ✓</span>
+              <span class="chip">API · <span class="muted">add later</span></span>
+              <span class="chip">Performance · <span class="muted">add later</span></span>
+              <span class="chip">Accessibility · <span class="muted">add later</span></span>
+            </div>
+            <div class="note">One E2E framework per app. Add other <b>test types</b> (API, performance…) later — each is its own adapter. You don't run two E2E tools over the same journeys.</div>
+          </div>
+
+          <div class="wizstep" data-step="2">
+            <h2 class="wq">Matrix &amp; environment</h2>
+            <div class="field"><label>Environment</label><div class="select-fake">Staging — <span class="mono">staging.pfizerforall.com</span> ▾</div></div>
+            <div class="field"><label>Browsers</label><div class="chiprow"><span class="chip sel">chromium ✓</span><span class="chip sel">firefox ✓</span><span class="chip sel">webkit ✓</span></div></div>
+            <div class="field"><label>Operating systems</label><div class="chiprow"><span class="chip sel">ubuntu ✓</span><span class="chip sel">windows ✓</span><span class="chip">macos</span></div></div>
+            <div class="field"><label>Lane</label><div class="chiprow"><span class="chip sel">non-GxP ✓</span><span class="chip">GxP</span></div></div>
+            <div class="note">Auth modes (OIDC / MyPfizer), private-environment tunnels &amp; mobile are a later matrix expansion — not in phase 1.</div>
+          </div>
+
+          <div class="wizstep" data-step="3">
+            <h2 class="wq">Test repository</h2>
+            <p class="muted small mb">One test repo for the whole app — scaffolded with your framework's suite, the assure-* skills, and a CI matrix. Feature tests live here, organized per feature.</p>
+            <label class="radio sel"><input type="radio" name="repo" checked> <div><strong>Create a new test repo</strong><span class="muted small">recommended</span></div></label>
+            <div class="repo-form">
+              <div class="field"><label>Owner</label><div class="select-fake">pfizerforall ▾</div></div>
+              <div class="field"><label>Repository name</label><div class="input-fake mono">pfizerforall-tests</div></div>
+              <div class="field"><label>Visibility</label><div class="chiprow"><span class="chip sel">private ✓</span><span class="chip">internal</span></div></div>
+            </div>
+            <label class="radio disabled"><input type="radio" name="repo" disabled> <div><strong>Use an existing test repo</strong><span class="pill neutral xs">coming soon</span></div></label>
+          </div>
+
+          <div class="wizstep" data-step="4">
+            <h2 class="wq">Review &amp; create</h2>
+            <dl class="review">
+              <dt>Application</dt><dd>PfizerForAll <span class="muted small">· Staging · github.com/pfizerforall/pfizerforall-web</span></dd>
+              <dt>E2E framework</dt><dd id="rv-framework">Playwright (TS)</dd>
+              <dt>Test types</dt><dd>E2E <span class="muted small">(API / performance can be added later)</span></dd>
+              <dt>Matrix</dt><dd>chromium · firefox · webkit × ubuntu · windows</dd>
+              <dt>Test repo</dt><dd><span class="mono">pfizerforall/pfizerforall-tests</span> <span class="pill neutral xs">new · private</span></dd>
+            </dl>
+            <div id="createPanel"><button class="btn primary lg" id="createBtn">Create assurance setup</button></div>
+
+            <div id="progressPanel" hidden>
+              <ul class="checklist" id="setupList">
+                <li class="ck"><span class="ck-dot"></span>Create test repo <span class="mono muted">pfizerforall/pfizerforall-tests</span></li>
+                <li class="ck"><span class="ck-dot"></span>Scaffold E2E suite + CI matrix</li>
+                <li class="ck"><span class="ck-dot"></span>Install assure-* skills + MCP config</li>
+                <li class="ck"><span class="ck-dot"></span>Connect Jira project SAA + Staging + BrowserStack</li>
+                <li class="ck"><span class="ck-dot"></span>Ready to validate features</li>
+              </ul>
+            </div>
+
+            <div id="donePanel" hidden>
+              <div class="done-banner">✓ Assurance is set up for <b>PfizerForAll</b>.</div>
+              <p class="muted small">Set up your machine with the <b>Assurance AI Kit</b> <span class="pill neutral xs">later milestone</span> — single-use, expires in 15 min:</p>
+              <div class="cmd"><code id="cmd">curl -fsSL https://aak.newpage.internal/install | bash -s -- --token=aak_8f3c…2b</code><button class="copybtn" id="copyBtn">Copy</button></div>
+              <div class="next">
+                <span class="muted small">Now validate a dev-complete feature — author, approve, automate, run:</span>
+                <div class="flow"><span class="flow-step">/assure-context</span><span class="flow-arrow">→</span><span class="flow-step">/assure-author</span><span class="flow-arrow">→</span><span class="flow-step">approve</span><span class="flow-arrow">→</span><span class="flow-step">/assure-automate</span><span class="flow-arrow">→</span><span class="flow-step">/assure-heal</span><span class="flow-arrow">→</span><span class="flow-step">/assure-pipeline</span></div>
+              </div>
+              <button class="btn primary" data-view-go="application">View application →</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="wizfoot" id="wizfoot">
+          <button class="btn ghost" id="backBtn" disabled>Back</button>
+          <span class="muted small" id="stepLabel">Step 1 of 4</span>
+          <button class="btn primary" id="nextBtn">Continue</button>
+        </div>
+      </section>
+
+      <!-- ============ FEATURE DETAIL (post-setup) ============ -->
+      <section class="view" id="view-feature">
+        <div class="page-head">
+          <div><h1>Medication Savings Finder</h1><p class="sub">PfizerForAll · SAA-1 · <span class="mono">pfizerforall/pfizerforall-tests</span></p></div>
+          <span class="pill ok lg">passing · 100%</span>
+        </div>
+        <div class="tabs" role="tablist">
+          <button class="tab active" data-tab="overview">Overview</button>
+          <button class="tab" data-tab="cases">Test Cases</button>
+          <button class="tab" data-tab="approvals">Approvals</button>
+          <button class="tab" data-tab="runs">Runs</button>
+          <button class="tab" data-tab="findings">Findings</button>
+          <button class="tab" data-tab="flaky">Flaky</button>
+        </div>
+
+        <div class="tabpane active" id="tab-overview">
+          <div class="grid-2">
+            <div class="card"><div class="card-head"><h2>Capability profile</h2></div>
+              <dl class="kv"><dt>Framework</dt><dd>Playwright (TS) <span class="muted small">· switchable</span></dd><dt>Matrix</dt><dd>chromium·firefox·webkit × ubuntu·windows</dd><dt>Environment</dt><dd class="mono small">staging.pfizerforall.com</dd><dt>Lane</dt><dd><span class="pill neutral">non-GxP</span></dd></dl>
+            </div>
+            <div class="card"><div class="card-head"><h2>One spec → your framework</h2></div>
+              <pre class="code"><span class="c-key">Scenario</span>: Search reveals savings options
+  <span class="c-key">When</span> I type <span class="c-str">"eli"</span> and select <span class="c-str">"ELIQUIS®"</span>
+  <span class="c-key">Then</span> a medication-specific savings panel shows</pre>
+            </div>
+          </div>
+        </div>
+        <div class="tabpane" id="tab-cases"><div class="card"><div class="card-head"><h2>Authored cases</h2><a class="link-accent" href="#">BrowserStack Test Management ↗</a></div>
+          <p class="muted small mb">4 suites · 11 scenarios · <span class="pill ok xs">in sync</span> with Test Management. Authored with ISTQB techniques (boundary-value, equivalence, decision tables).</p>
+          <div class="table-wrap"><table class="table"><thead><tr><th>Suite</th><th>Story</th><th>Scenarios</th><th>Technique</th><th>Test Mgmt</th><th>State</th></tr></thead><tbody><tr><td>Search → tailored savings</td><td><a class="link-accent" href="#">SAA-2 ↗</a></td><td class="num">2</td><td class="muted small">equivalence</td><td><a class="link-accent mono small" href="#">TC-1024 ↗</a></td><td><span class="pill ok">approved</span></td></tr><tr><td>Search input behaves predictably</td><td><a class="link-accent" href="#">SAA-3 ↗</a></td><td class="num">4</td><td class="muted small">BVA · decision table</td><td><a class="link-accent mono small" href="#">TC-1025 ↗</a></td><td><span class="pill ok">approved</span></td></tr><tr><td>Graceful no-results</td><td><a class="link-accent" href="#">SAA-4 ↗</a></td><td class="num">2</td><td class="muted small">edge / equivalence</td><td><a class="link-accent mono small" href="#">TC-1026 ↗</a></td><td><span class="pill ok">approved</span></td></tr><tr><td>Input robustness</td><td class="muted">flagged gap — no story</td><td class="num">3</td><td class="muted small">BVA · special-char</td><td class="muted small">—</td><td><span class="pill warn">proposed</span></td></tr></tbody></table></div></div></div>
+        <div class="tabpane" id="tab-approvals"><div class="card"><div class="card-head"><h2>Review &amp; approve gate</h2><a class="link-accent" href="#">Cases in Test Management ↗</a></div>
+          <div class="gate" id="gate"><div class="gate-state"><span class="gate-dot off" id="gateDot"></span><div><strong id="gateTitle">Pending approval</strong><p class="muted small" id="gateSub">Approving the Test-Management cases unlocks automation; status is written back to BrowserStack.</p></div></div><button class="btn primary" id="approveBtn">Approve as Product Owner</button></div>
+          <div class="unlock" id="unlock" hidden>✓ Automation unlocked — CI may run the suite. Status synced to Test Management.</div></div></div>
+        <div class="tabpane" id="tab-runs"><div class="card"><div class="card-head"><h2>Run history</h2><a class="link-accent" href="#">BrowserStack Observability ↗</a></div><div class="table-wrap"><table class="table"><thead><tr><th>When</th><th>Change</th><th>Jobs</th><th>Status</th></tr></thead><tbody><tr><td class="nowrap">Jun 29, 14:48</td><td>Resilience: web-first waits</td><td class="num">8/8</td><td><span class="pill ok">passed</span></td></tr><tr><td class="nowrap">Jun 29, 13:51</td><td>CI: drop junitxml clash</td><td class="num">8/8</td><td><span class="pill ok">passed</span></td></tr></tbody></table></div></div></div>
+        <div class="tabpane" id="tab-findings"><div class="card"><div class="card-head"><h2>Findings</h2><span class="muted">1 bug · 2 obs</span></div><div class="finding"><div class="finding-top"><span class="pill bad">Bug</span><span class="pill warn">P2</span><a class="link-accent mono" href="#">SAA-16 ↗</a><span class="muted small">Firefox</span></div><strong>Intermittent uncaught TypeError ("DomainData")</strong><p class="muted small">product / intermittent (NOT a flaky test) · found by automation</p>
+          <div class="rca"><span class="rca-tag">AI-drafted RCA</span><p class="muted small">A race in the Firefox build leaves <span class="mono">DomainData</span> undefined when the savings panel renders before the catalog promise resolves; user-visible only as a console error. QA confirmed; PO set <b>P2</b>.</p></div></div></div></div>
+        <div class="tabpane" id="tab-flaky"><div class="card"><div class="card-head"><h2>Flaky register</h2></div><div class="empty"><span class="status-dot ok"></span><div><strong>No flaky tests.</strong><p class="muted small">Suite is deterministic; SAA-16 is tracked as a product bug, not quarantined.</p></div></div></div></div>
+      </section>
+
+      <!-- ============ SKILLS ============ -->
+      <section class="view" id="view-skills">
+        <div class="page-head"><div><h1>Skills</h1><p class="sub">The <span class="mono">assure-*</span> workflow the <b>Assurance AI Kit</b> installs.</p></div><span class="pill neutral lg">bundle v0.4.1</span></div>
+        <div class="cards-grid">
+          <div class="card skill"><div class="skill-top"><span class="mono">/assure-context</span><span class="pill ok xs">v1.2</span></div><p class="muted small">Pull Jira stories, consolidate, flag gaps.</p></div>
+          <div class="card skill"><div class="skill-top"><span class="mono">/assure-author</span><span class="pill ok xs">v1.1</span></div><p class="muted small">Author one tool-agnostic Gherkin set.</p></div>
+          <div class="card skill"><div class="skill-top"><span class="mono">/assure-automate</span><span class="pill ok xs">v1.3</span></div><p class="muted small">Generate adapters; web-first, a11y-first.</p></div>
+          <div class="card skill"><div class="skill-top"><span class="mono">/assure-heal</span><span class="pill ok xs">v1.1</span></div><p class="muted small">Triage script-vs-app; fix; re-run green.</p></div>
+          <div class="card skill"><div class="skill-top"><span class="mono">/assure-pipeline</span><span class="pill ok xs">v1.0</span></div><p class="muted small">CI matrix → Observability.</p></div>
+          <div class="card skill"><div class="skill-top"><span class="mono">/assure-flaky</span><span class="pill accent xs">new</span></div><p class="muted small">Detect, classify, quarantine.</p></div>
+          <div class="card skill" style="opacity:.6"><div class="skill-top"><span class="mono">/assure-visual</span><span class="pill neutral xs">phase 2/3</span></div><p class="muted small">Visual regression + Figma design-conformance.</p></div>
+        </div>
+      </section>
+
+      <!-- ============ INTEGRATIONS ============ -->
+      <section class="view" id="view-integrations">
+        <div class="page-head"><div><h1>Integrations</h1><p class="sub">Connect the systems the Assurance Line reads and writes.</p></div></div>
+        <div class="cards-grid">
+          <div class="card integ"><div class="integ-top"><strong>Jira</strong><span class="pill ok">connected</span></div><p class="muted small">newpagedt.atlassian.net · SAA</p><span class="link-accent small">Manage →</span></div>
+          <div class="card integ"><div class="integ-top"><strong>GitHub</strong><span class="pill ok">connected</span></div><p class="muted small">pfizerforall org · Actions</p><span class="link-accent small">Manage →</span></div>
+          <div class="card integ"><div class="integ-top"><strong>BrowserStack</strong><span class="pill ok">connected</span></div><p class="muted small">Test Management + Observability · env QA</p><span class="link-accent small">Manage →</span></div>
+          <div class="card integ ghost"><div class="integ-top"><strong>Slack</strong><span class="pill neutral">add</span></div><p class="muted small">Notify on failures &amp; findings.</p><span class="link-accent small">Connect →</span></div>
+        </div>
+      </section>
+
+      <section class="view" id="view-team"><div class="page-head"><div><h1>Team</h1><p class="sub">Members &amp; roles. <span class="muted small">(minimal in v1 — full RBAC later)</span></p></div></div><div class="card"><div class="table-wrap"><table class="table"><thead><tr><th>Member</th><th>Email</th><th>Role</th></tr></thead><tbody><tr><td>Srish C.</td><td class="muted">srish.chander@newpage.io</td><td><span class="pill neutral">QA Engineer</span></td></tr><tr><td>Priya M.</td><td class="muted">priya.m@newpage.io</td><td><span class="pill accent">Product Owner</span></td></tr></tbody></table></div></div></section>
+      <section class="view" id="view-settings"><div class="page-head"><div><h1>Settings</h1><p class="sub">Profile, theme, tokens, audit log.</p></div></div><div class="card"><p class="muted">Mockup placeholder.</p></div></section>
+
+    </main>
+  </div>
+</div>
+
+<style>
+  :root {
+    --ink:#0e1726; --ink-2:#16213a; --ground:#fbfcfd; --surface:#fff; --text:#18222f; --muted:#65718a;
+    --line:#e7ebf1; --line-2:#eef1f6; --accent:#0891b2; --accent-strong:#0e7490; --accent-soft:#ecfeff;
+    --ok:#15803d; --ok-soft:#e6f6ec; --bad:#be123c; --bad-soft:#ffe4ea; --warn:#b45309; --warn-soft:#fdf2e3;
+    --neutral-soft:#eef1f6; --radius:12px; --shadow:0 1px 2px rgba(13,26,48,.04),0 6px 20px rgba(13,26,48,.05); --sb:250px; color-scheme:light;
+  }
+  [data-theme="dark"]{--ground:#0b1220;--surface:#111a2b;--text:#e6ecf5;--muted:#93a0b8;--line:#1e293f;--line-2:#1a2336;--neutral-soft:#1c2740;--accent-soft:#0c2630;--ok-soft:#0f2a1c;--bad-soft:#2c1119;--warn-soft:#2a1f0c;--shadow:0 1px 2px rgba(0,0,0,.3),0 8px 24px rgba(0,0,0,.35);color-scheme:dark;}
+  *{box-sizing:border-box;} html,body{margin:0;height:100%;}
+  body{background:var(--ground);color:var(--text);font-family:ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;font-size:14px;line-height:1.5;-webkit-font-smoothing:antialiased;}
+  .mono{font-family:ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;} .muted{color:var(--muted);} .small{font-size:12px;}
+  .num{font-variant-numeric:tabular-nums;text-align:right;} .nowrap{white-space:nowrap;} .mt{margin-top:10px;} .mb{margin-bottom:12px;}
+  h1{font-size:22px;font-weight:700;margin:0;letter-spacing:-.01em;} h2{font-size:14px;font-weight:700;margin:0;}
+  a{color:inherit;text-decoration:none;} .link-accent{color:var(--accent);font-weight:600;cursor:pointer;} .link-accent:hover{color:var(--accent-strong);text-decoration:underline;}
+  #app{display:grid;grid-template-columns:var(--sb) 1fr;min-height:100vh;}
+
+  .sidebar{background:var(--ink);color:#c7d2e4;display:flex;flex-direction:column;position:sticky;top:0;height:100vh;}
+  .brand{display:flex;align-items:center;gap:11px;padding:18px 18px 14px;}
+  .brand-mark{width:32px;height:32px;display:grid;place-items:center;background:var(--accent);color:#fff;border-radius:9px;font-size:17px;}
+  .brand-text{display:flex;flex-direction:column;line-height:1.25;} .brand-text strong{color:#fff;font-size:15px;} .brand-text span{color:#8294b3;font-size:11px;}
+  .nav{display:flex;flex-direction:column;gap:2px;padding:8px 12px;flex:1;}
+  .nav-item{display:flex;align-items:center;gap:10px;padding:9px 11px;border:0;background:transparent;color:#aeb9d0;font:inherit;font-size:13.5px;font-weight:500;border-radius:9px;cursor:pointer;text-align:left;width:100%;}
+  .nav-item:hover{background:var(--ink-2);color:#e6ecf7;} .nav-item.active{background:var(--ink-2);color:#fff;} .nav-item.active .ic{color:var(--accent);}
+  .ic{width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none;}
+  .nav-sep{height:1px;background:#1d2942;margin:8px 6px;} .sidebar-foot{padding:14px 18px;border-top:1px solid #1d2942;} .kitver{font-size:12px;color:#8294b3;display:flex;align-items:center;gap:7px;}
+
+  .main{display:flex;flex-direction:column;min-width:0;}
+  .topbar{display:flex;align-items:center;justify-content:space-between;padding:12px 26px;background:var(--surface);border-bottom:1px solid var(--line);position:sticky;top:0;z-index:5;}
+  .crumbs{display:flex;align-items:center;gap:10px;font-size:14px;}
+  .crumb-here{color:var(--text);font-weight:600;}
+  .top-actions{display:flex;align-items:center;gap:14px;}
+  .icon-btn{border:1px solid var(--line);background:var(--surface);color:var(--muted);width:34px;height:34px;border-radius:8px;display:grid;place-items:center;cursor:pointer;} .icon-btn:hover{color:var(--text);}
+  .me{display:flex;align-items:center;gap:9px;} .avatar{width:32px;height:32px;border-radius:50%;background:var(--accent-soft);color:var(--accent-strong);display:grid;place-items:center;font-weight:700;font-size:12px;} .me-text{display:flex;flex-direction:column;line-height:1.2;} .me-text strong{font-size:13px;}
+
+  .content{padding:26px;max-width:1180px;width:100%;}
+  .view{display:none;} .view.active{display:block;animation:fade .18s ease;}
+  @keyframes fade{from{opacity:0;transform:translateY(4px);}to{opacity:1;transform:none;}}
+  @media (prefers-reduced-motion:reduce){.view.active{animation:none;}}
+  .page-head{display:flex;align-items:flex-start;justify-content:space-between;gap:16px;margin-bottom:18px;}
+  .page-head .sub{margin:4px 0 0;color:var(--muted);font-size:13px;}
+
+  .btn{font:inherit;font-weight:600;font-size:13px;border-radius:9px;padding:9px 15px;cursor:pointer;border:1px solid transparent;}
+  .btn.primary{background:var(--accent);color:#fff;} .btn.primary:hover{background:var(--accent-strong);}
+  .btn.ghost{background:transparent;border-color:var(--line);color:var(--text);} .btn.ghost:hover{border-color:var(--muted);}
+  .btn.sm{padding:6px 11px;font-size:12px;} .btn.lg{padding:11px 20px;font-size:14px;}
+  .btn:disabled{opacity:.45;cursor:not-allowed;}
+
+  .welcome{display:flex;align-items:center;justify-content:space-between;gap:18px;background:linear-gradient(100deg,var(--accent-soft),var(--surface));border:1px solid var(--line);border-radius:var(--radius);padding:16px 20px;margin-bottom:20px;box-shadow:var(--shadow);}
+  .welcome strong{font-size:15px;} .welcome p{margin:3px 0 0;color:var(--muted);font-size:13px;}
+
+  .kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:18px;}
+  .kpi{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:15px 16px;display:flex;flex-direction:column;gap:4px;box-shadow:var(--shadow);position:relative;}
+  .kpi-label{color:var(--muted);font-size:12px;} .kpi-val{font-size:26px;font-weight:700;letter-spacing:-.02em;font-variant-numeric:tabular-nums;} .kpi-val.good{color:var(--ok);} .kpi-val.warn{color:var(--warn);}
+  .kpi-spark{position:absolute;right:14px;bottom:14px;width:64px;height:22px;color:var(--accent);}
+
+  .card{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:16px 18px;box-shadow:var(--shadow);margin-bottom:16px;}
+  .card-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;} .card-head h2{font-size:14px;}
+  .grid-2{display:grid;grid-template-columns:1fr 1fr;gap:16px;} .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:16px;} .cards-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  .card.mini{display:flex;flex-direction:column;gap:3px;} .mini-label{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);}
+  .applink{text-align:left;font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;gap:6px;} .applink:hover{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);} .applink.ghost{border-style:dashed;}
+  .assbar{display:flex;align-items:center;justify-content:space-between;gap:12px;} .assbar-l{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
+  .subhead2{font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--muted);margin:16px 0 8px;}
+
+  .pill{font-size:11px;font-weight:700;padding:3px 9px;border-radius:999px;white-space:nowrap;} .pill.xs{font-size:10px;padding:2px 7px;} .pill.lg{font-size:12px;padding:5px 12px;}
+  .pill.ok{background:var(--ok-soft);color:var(--ok);} .pill.bad{background:var(--bad-soft);color:var(--bad);} .pill.warn{background:var(--warn-soft);color:var(--warn);} .pill.neutral{background:var(--neutral-soft);color:var(--muted);} .pill.accent{background:var(--accent-soft);color:var(--accent-strong);}
+  .status-dot,.dot{width:9px;height:9px;border-radius:50%;flex:none;} .status-dot.ok,.dot.ok{background:var(--ok);box-shadow:0 0 0 3px var(--ok-soft);} .status-dot.off{background:#aab4c6;}
+
+  .approw{display:flex;flex-direction:column;gap:5px;padding:12px;border:1px solid var(--line-2);border-radius:10px;width:100%;text-align:left;background:var(--surface);font:inherit;color:inherit;}
+  button.approw{cursor:pointer;} .approw.live:hover{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);}
+  .approw-main{display:flex;align-items:center;gap:9px;} .approw-main strong{font-size:14px;} .approw-meta{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;padding-left:18px;}
+
+  .attn{display:flex;gap:11px;align-items:flex-start;padding:9px 0;border-top:1px solid var(--line-2);} .attn:first-of-type{border-top:0;} .attn strong{font-size:13px;} .attn p{margin:2px 0 0;}
+
+  .table-wrap{overflow-x:auto;} .table{width:100%;border-collapse:collapse;font-size:13px;}
+  .table th{text-align:left;color:var(--muted);font-weight:600;font-size:12px;padding:8px 10px;border-bottom:1px solid var(--line);}
+  .table td{padding:10px;border-bottom:1px solid var(--line-2);vertical-align:middle;} .table tr:last-child td{border-bottom:0;}
+  tr.dim{opacity:.6;}
+
+  .kv{display:grid;grid-template-columns:96px 1fr;gap:9px 14px;margin:0;} .kv dt{color:var(--muted);} .kv dd{margin:0;} .kv dd .muted{display:inline;}
+  .code{background:var(--ink);color:#d7e1f2;border-radius:10px;padding:14px 16px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;line-height:1.7;overflow-x:auto;white-space:pre;} .c-key{color:#5fd3e8;} .c-str{color:#9be29b;}
+
+  .tabs{display:flex;gap:4px;border-bottom:1px solid var(--line);margin-bottom:18px;overflow-x:auto;}
+  .tab{border:0;background:transparent;color:var(--muted);font:inherit;font-weight:600;font-size:13px;padding:9px 13px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-1px;white-space:nowrap;}
+  .tab:hover{color:var(--text);} .tab.active{color:var(--accent-strong);border-bottom-color:var(--accent);}
+  .tabpane{display:none;} .tabpane.active{display:block;}
+
+  .gate{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:14px 16px;border-radius:11px;border:1px solid var(--line);background:var(--warn-soft);} .gate.on{background:var(--ok-soft);border-color:#bfe6cb;}
+  .gate-state{display:flex;align-items:center;gap:12px;} .gate-dot{width:12px;height:12px;border-radius:50%;} .gate-dot.off{background:var(--warn);box-shadow:0 0 0 4px var(--warn-soft);} .gate-dot.on{background:var(--ok);box-shadow:0 0 0 4px var(--ok-soft);}
+  .unlock{margin-top:12px;color:var(--ok);font-weight:600;font-size:13px;}
+  .finding{padding:12px 0;border-top:1px solid var(--line-2);} .finding:first-of-type{border-top:0;} .finding-top{display:flex;align-items:center;gap:10px;margin-bottom:5px;} .finding strong{font-size:13px;} .finding p{margin:3px 0 0;}
+  .rca{margin-top:9px;background:var(--accent-soft);border-radius:9px;padding:9px 12px;} .rca-tag{display:inline-block;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:var(--accent-strong);margin-bottom:3px;}
+  .empty{display:flex;gap:12px;align-items:flex-start;} .skill-top,.integ-top{display:flex;align-items:center;justify-content:space-between;margin-bottom:7px;} .skill .mono{font-size:13px;font-weight:600;} .skill p,.integ p{margin:0 0 8px;} .integ.ghost{border-style:dashed;}
+
+  .wiz-head{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:18px;} .wiz-head .sub{margin:4px 0 0;color:var(--muted);font-size:13px;}
+  .stepper{list-style:none;display:flex;gap:8px;padding:0;margin:0 0 20px;flex-wrap:wrap;}
+  .sp{display:flex;align-items:center;gap:8px;font-size:12.5px;font-weight:600;color:var(--muted);padding:8px 13px;border:1px solid var(--line);border-radius:999px;background:var(--surface);}
+  .sp span{width:20px;height:20px;border-radius:50%;background:var(--neutral-soft);display:grid;place-items:center;font-size:11px;}
+  .sp.active{color:var(--accent-strong);border-color:var(--accent);background:var(--accent-soft);} .sp.active span{background:var(--accent);color:#fff;}
+  .sp.done{color:var(--ok);border-color:#bfe6cb;background:var(--ok-soft);} .sp.done span{background:var(--ok);color:#fff;}
+  .wizbody{background:var(--surface);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);min-height:300px;}
+  .wizstep{display:none;} .wizstep.active{display:block;animation:fade .18s ease;}
+  .wq{font-size:17px;font-weight:700;margin:0 0 4px;}
+  .opts{display:flex;flex-direction:column;gap:10px;} .opts.grid{display:grid;grid-template-columns:1fr 1fr;}
+  .opt{text-align:left;border:1px solid var(--line);border-radius:11px;padding:13px 15px;background:var(--surface);font:inherit;color:inherit;cursor:pointer;display:flex;flex-direction:column;gap:3px;}
+  .opt:hover:not(.disabled){border-color:var(--accent);} .opt.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);background:var(--accent-soft);}
+  .opt.disabled{opacity:.55;cursor:not-allowed;background:var(--ground);} .opt-main{display:flex;align-items:center;justify-content:space-between;gap:8px;} .opt-main strong{font-size:14px;}
+  .check{color:var(--accent);font-weight:800;opacity:0;} .opt.sel .check{opacity:1;}
+  .note{margin-top:14px;font-size:12px;color:var(--muted);background:var(--accent-soft);border-radius:9px;padding:10px 12px;}
+  .field{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;} .field>label{font-size:12px;font-weight:700;color:var(--muted);text-transform:uppercase;letter-spacing:.4px;}
+  .select-fake,.input-fake{border:1px solid var(--line);border-radius:9px;padding:9px 12px;background:var(--surface);font-size:13px;max-width:380px;}
+  .chiprow{display:flex;flex-wrap:wrap;gap:7px;} .chip{background:var(--neutral-soft);color:var(--muted);border-radius:8px;padding:5px 11px;font-size:12px;font-weight:600;cursor:default;} .chip.sel{background:var(--accent-soft);color:var(--accent-strong);}
+  .radio{display:flex;align-items:flex-start;gap:10px;border:1px solid var(--line);border-radius:11px;padding:13px 15px;margin-bottom:12px;cursor:pointer;} .radio.sel{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft);} .radio.disabled{opacity:.6;cursor:not-allowed;} .radio div{display:flex;flex-direction:column;} .radio strong{font-size:13px;}
+  .repo-form{border-left:2px solid var(--accent-soft);padding:4px 0 4px 16px;margin:0 0 12px 8px;}
+  .review{display:grid;grid-template-columns:120px 1fr;gap:10px 16px;margin:0 0 18px;} .review dt{color:var(--muted);font-size:13px;} .review dd{margin:0;font-size:13px;}
+  .done-banner{background:var(--ok-soft);color:var(--ok);font-weight:700;border-radius:10px;padding:12px 14px;margin-bottom:12px;}
+  .next{margin:14px 0;} .flow{display:flex;align-items:center;flex-wrap:wrap;gap:7px;margin-top:8px;} .flow-step{font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;background:var(--neutral-soft);padding:5px 9px;border-radius:7px;} .flow-arrow{color:var(--muted);}
+  .cmd{display:flex;align-items:center;gap:10px;background:var(--ink);border-radius:10px;padding:10px 10px 10px 14px;margin-bottom:6px;} .cmd code{color:#d7e1f2;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12.5px;overflow-x:auto;white-space:nowrap;flex:1;} .copybtn{border:0;background:var(--accent);color:#fff;font:inherit;font-weight:600;font-size:12px;padding:7px 13px;border-radius:7px;cursor:pointer;flex:none;}
+  .checklist{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:2px;}
+  .ck{display:flex;align-items:center;gap:10px;padding:7px 4px;font-size:13px;color:var(--muted);}
+  .ck-dot{width:16px;height:16px;border-radius:50%;border:2px solid var(--line);flex:none;position:relative;}
+  .ck.done{color:var(--text);} .ck.done .ck-dot{background:var(--ok);border-color:var(--ok);} .ck.done .ck-dot::after{content:"✓";position:absolute;inset:0;color:#fff;font-size:10px;display:grid;place-items:center;}
+  .ck.active .ck-dot{border-color:var(--accent);border-right-color:transparent;animation:spin .8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}} @media (prefers-reduced-motion:reduce){.ck.active .ck-dot{animation:none;}}
+  .wizfoot{display:flex;align-items:center;justify-content:space-between;margin-top:16px;} .wizfoot .muted{flex:1;text-align:center;}
+
+  @media (max-width:900px){
+    #app{grid-template-columns:1fr;} .sidebar{position:static;height:auto;flex-direction:row;align-items:center;overflow-x:auto;} .nav{flex-direction:row;} .nav-sep,.sidebar-foot,.brand-text{display:none;}
+    .kpis,.grid-2,.grid-3,.cards-grid,.opts.grid{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:560px){.kpis,.grid-2,.grid-3,.cards-grid,.opts.grid,.review{grid-template-columns:1fr;} .content{padding:16px;} .welcome{flex-direction:column;align-items:flex-start;}}
+</style>
+
+<script>
+  document.querySelectorAll('[data-spark]').forEach((el)=>{const pts=el.getAttribute('data-spark').split(',').map(Number);const w=64,h=22,max=100,step=pts.length>1?w/(pts.length-1):w;const d=pts.map((p,i)=>`${i?'L':'M'} ${(i*step).toFixed(1)} ${(h-(p/max)*h).toFixed(1)}`).join(' ');el.innerHTML=`<svg width="${w}" height="${h}" viewBox="0 0 ${w} ${h}"><path d="${d}" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>`;});
+
+  const views=document.querySelectorAll('.view'), navItems=document.querySelectorAll('.nav-item'), crumb=document.getElementById('crumb');
+  const labels={dashboard:'Dashboard',applications:'Applications',application:'PfizerForAll',connect:'Add application',onboard:'Set up assurance',feature:'Medication Savings Finder',skills:'Skills',integrations:'Integrations',team:'Team',settings:'Settings'};
+  const navMap={dashboard:'dashboard',applications:'applications',application:'applications',connect:'applications',skills:'skills',integrations:'integrations',team:'team',settings:'settings'};
+  function show(view){views.forEach(v=>v.classList.toggle('active',v.id==='view-'+view));navItems.forEach(n=>n.classList.toggle('active',n.dataset.view===navMap[view]));crumb.textContent=labels[view]||view;window.scrollTo(0,0);}
+  navItems.forEach(n=>n.addEventListener('click',()=>show(n.dataset.view)));
+  document.querySelectorAll('[data-view-go]').forEach(b=>b.addEventListener('click',()=>show(b.dataset.viewGo)));
+
+  document.querySelectorAll('[data-onboard]').forEach(b=>b.addEventListener('click',()=>{ resetWizard(); show('onboard'); }));
+
+  document.querySelectorAll('.tab').forEach(t=>t.addEventListener('click',()=>{document.querySelectorAll('.tab').forEach(x=>x.classList.toggle('active',x===t));document.querySelectorAll('.tabpane').forEach(p=>p.classList.toggle('active',p.id==='tab-'+t.dataset.tab));}));
+
+  document.querySelectorAll('.opt[data-pick]').forEach(o=>o.addEventListener('click',()=>{
+    if(o.classList.contains('disabled'))return;
+    if(o.dataset.pick==='framework'){document.querySelectorAll('.opt[data-pick="framework"]').forEach(x=>x.classList.remove('sel'));o.classList.add('sel');}
+    else{o.classList.toggle('sel');}
+  }));
+
+  let step=1; const TOTAL=4;
+  const stepper=document.getElementById('stepper'), backBtn=document.getElementById('backBtn'), nextBtn=document.getElementById('nextBtn'), stepLabel=document.getElementById('stepLabel'), wizfoot=document.getElementById('wizfoot');
+  function renderStep(){
+    document.querySelectorAll('.wizstep').forEach(s=>s.classList.toggle('active',+s.dataset.step===step));
+    stepper.querySelectorAll('.sp').forEach(sp=>{const n=+sp.dataset.for;sp.classList.toggle('active',n===step);sp.classList.toggle('done',n<step);});
+    backBtn.disabled=step===1; nextBtn.style.visibility=step===TOTAL?'hidden':'visible'; stepLabel.textContent=`Step ${step} of ${TOTAL}`;
+    if(step===4){
+      const fw=document.querySelector('.opt[data-pick="framework"].sel');
+      document.getElementById('rv-framework').textContent=fw?fw.dataset.val:'(none selected)';
+    }
+  }
+  nextBtn.addEventListener('click',()=>{ if(step<TOTAL){step++;renderStep();} });
+  backBtn.addEventListener('click',()=>{ if(step>1){step--;renderStep();} });
+  function resetWizard(){ step=1; renderStep(); document.getElementById('createPanel').hidden=false; document.getElementById('progressPanel').hidden=true; document.getElementById('donePanel').hidden=true; document.querySelectorAll('#setupList .ck').forEach(c=>c.className='ck'); wizfoot.style.display='flex'; }
+
+  document.getElementById('createBtn').addEventListener('click',()=>{
+    document.getElementById('createPanel').hidden=true; document.getElementById('progressPanel').hidden=false; wizfoot.style.display='none';
+    const items=[...document.querySelectorAll('#setupList .ck')]; let i=0;
+    const tick=()=>{ if(i>0)items[i-1].className='ck done'; if(i<items.length){items[i].className='ck active'; i++; setTimeout(tick,700);} else { document.getElementById('progressPanel').hidden=true; document.getElementById('donePanel').hidden=false; } };
+    tick();
+  });
+
+  const approveBtn=document.getElementById('approveBtn');
+  approveBtn&&approveBtn.addEventListener('click',()=>{const g=document.getElementById('gate');const on=g.classList.toggle('on');document.getElementById('gateDot').className='gate-dot '+(on?'on':'off');document.getElementById('gateTitle').textContent=on?'Approved — automation unlocked':'Pending approval';document.getElementById('gateSub').textContent=on?'Approved as Product Owner · just now · synced to Test Management':'Approving the Test-Management cases unlocks automation; status is written back to BrowserStack.';approveBtn.textContent=on?'Revoke':'Approve as Product Owner';document.getElementById('unlock').hidden=!on;});
+
+  const copyBtn=document.getElementById('copyBtn');
+  copyBtn&&copyBtn.addEventListener('click',()=>{navigator.clipboard&&navigator.clipboard.writeText(document.getElementById('cmd').textContent).catch(()=>{});copyBtn.textContent='Copied ✓';setTimeout(()=>copyBtn.textContent='Copy',1500);});
+  document.getElementById('themeBtn').addEventListener('click',()=>{const r=document.documentElement;r.setAttribute('data-theme',r.getAttribute('data-theme')==='dark'?'light':'dark');});
+
+  renderStep();
+</script>

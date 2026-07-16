@@ -1,0 +1,5 @@
+{
+  "name": "Playwright Run Report",
+  "slug": "pfa-playwright-report",
+  "description": "Confidential CI test execution and pass metrics report"
+}

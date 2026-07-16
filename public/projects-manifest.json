@@ -1,0 +1,27 @@
+[
+  {
+    "name": "Assurance Deck",
+    "slug": "assurance-deck",
+    "description": "Enterprise Scale and Deployment Strategy Pitch Deck"
+  },
+  {
+    "name": "MVP Walkthrough",
+    "slug": "mvp-walkthrough",
+    "description": "Interactive Step-by-Step Product Walkthrough Demo"
+  },
+  {
+    "name": "Playwright Run Report",
+    "slug": "pfa-playwright-report",
+    "description": "Confidential CI test execution and pass metrics report"
+  },
+  {
+    "name": "Platform Mockup",
+    "slug": "platform-mockup",
+    "description": "Full interactive dashboard mockup for FlowOps operations"
+  },
+  {
+    "name": "Vision Walkthrough",
+    "slug": "vision-walkthrough",
+    "description": "Product Vision and Scalability Walkthrough Demo"
+  }
+]
