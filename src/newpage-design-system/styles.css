@@ -1,0 +1,10 @@
+/* ============================================================
+   NEWPAGE DESIGN SYSTEM — global entry point.
+   Consumers link THIS file only. It is an @import manifest;
+   keep it free of rules. Everything reachable here ships.
+   ============================================================ */
+@import "./tokens/fonts.css";
+@import "./tokens/colors.css";
+@import "./tokens/typography.css";
+@import "./tokens/spacing.css";
+@import "./tokens/themes.css";

@@ -1,0 +1,57 @@
+/* ============================================================
+   NEWPAGE — COLOR TOKENS
+   A teal-forward identity for a life-sciences engineering partner.
+   Teal Ink replaces pure black; teal is the primary accent; the
+   arrowhead's orange + gold are reserved for emphasis and data.
+   ============================================================ */
+:root {
+  /* --- Brand core --- */
+  --np-teal-ink:   #06302E; /* deep teal — primary brand dark, replaces black */
+  --np-deep-teal:  #008C85; /* mid teal — links, secondary emphasis */
+  --np-teal:       #08BDB8; /* primary accent — CTAs, highlights */
+  --np-teal-700:   #007A74; /* teal text on tint backgrounds */
+  --np-paper:      #FFFFFF; /* surface white */
+
+  /* --- Arrowhead palette — emphasis & data only --- */
+  --np-orange:     #F47920;
+  --np-gold:       #FDC72F;
+  --np-teal-soft:  #7FDAD7; /* lighter teal for data sequences */
+
+  /* --- Ink / neutrals (cool gray family) --- */
+  --np-ink:        #0E1116; /* near-black text ink (editorial alt) */
+  --np-graphite:   #2C333D;
+  --np-slate:      #5B636E; /* body / secondary text */
+  --np-cool-gray:  #8B939E; /* muted labels */
+  --np-gray-400:   #9AA4AB; /* mono captions */
+  --np-line:       #E6E8EC; /* hairline borders */
+  --np-line-soft:  #EEF1F3; /* inner dividers */
+  --np-mist:       #F7F8FA; /* subtle fill */
+  --np-canvas:     #EAEDEF; /* cool app/page canvas */
+  --np-cream:      #ECE9E1; /* warm editorial canvas */
+  --np-teal-tint:  #E6FAF9; /* teal wash — tags, icon wells */
+
+  /* --- Semantic --- */
+  --np-success:    #008C85;
+  --np-warning:    #F47920;
+  --np-danger:     #D14B4B;
+
+  /* --- Semantic aliases (use these in product) --- */
+  --surface-page:     var(--np-canvas);
+  --surface-card:     var(--np-paper);
+  --surface-inverse:  var(--np-teal-ink);
+  --surface-fill:     var(--np-mist);
+  --surface-tint:     var(--np-teal-tint);
+
+  --text-strong:      var(--np-teal-ink);
+  --text-body:        var(--np-slate);
+  --text-muted:       var(--np-cool-gray);
+  --text-on-inverse:  #F7F8FA;
+  --text-link:        var(--np-deep-teal);
+
+  --border-default:   var(--np-line);
+  --border-strong:    var(--np-teal-ink);
+
+  --accent:           var(--np-teal);
+  --accent-hover:     #06A8A3;
+  --accent-press:     var(--np-deep-teal);
+}

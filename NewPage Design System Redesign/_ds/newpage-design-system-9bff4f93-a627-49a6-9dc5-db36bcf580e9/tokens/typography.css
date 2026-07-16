@@ -1,0 +1,45 @@
+/* ============================================================
+   NEWPAGE — TYPOGRAPHY TOKENS
+   Display: Space Grotesk (engineered, modern headline edge)
+   Body:    IBM Plex Sans (precise, legible, trustworthy)
+   Mono:    IBM Plex Mono (labels, eyebrows, codes, data)
+   ============================================================ */
+:root {
+  /* Families */
+  --font-display: 'Space Grotesk', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-body:    'IBM Plex Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-mono:    'IBM Plex Mono', ui-monospace, 'SFMono-Regular', monospace;
+
+  /* Weights */
+  --fw-regular: 400; /* @kind font */
+  --fw-medium:  500; /* @kind font */
+  --fw-semibold:600; /* @kind font */
+  --fw-bold:    700; /* @kind font */
+
+  /* Type scale — font-size px. Line-heights (--lh-*) and letter-spacing (--ls-*) are unitless/em ratios. */
+  --fs-display:  68px;
+  --fs-h1:       44px;
+  --fs-h2:       34px;
+  --fs-h3:       24px;
+  --fs-lead:     20px;
+  --fs-body:     17px;
+  --fs-body-sm:  14.5px;
+  --fs-label:    13px;
+  --fs-caption:  12px;
+
+  --lh-display:  1.02; /* @kind other */
+  --lh-h1:       1.06; /* @kind other */
+  --lh-h2:       1.1;  /* @kind other */
+  --lh-h3:       1.2;  /* @kind other */
+  --lh-lead:     1.5;  /* @kind other */
+  --lh-body:     1.55; /* @kind other */
+  --lh-body-sm:  1.55; /* @kind other */
+  --lh-label:    1.4;  /* @kind other */
+
+  --ls-display: -2px;   /* @kind other */
+  --ls-h1:      -1.5px; /* @kind other */
+  --ls-h2:      -1px;   /* @kind other */
+  --ls-h3:      -0.5px; /* @kind other */
+  --ls-label:    2px;   /* @kind other */
+  --ls-caption:  1.5px; /* @kind other */
+}

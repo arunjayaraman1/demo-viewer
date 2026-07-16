@@ -1,0 +1,519 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <link rel="stylesheet" href="_ds/newpage-design-system-9bff4f93-a627-49a6-9dc5-db36bcf580e9/tokens/fonts.css">
+  <link rel="stylesheet" href="_ds/newpage-design-system-9bff4f93-a627-49a6-9dc5-db36bcf580e9/tokens/colors.css">
+  <link rel="stylesheet" href="_ds/newpage-design-system-9bff4f93-a627-49a6-9dc5-db36bcf580e9/tokens/typography.css">
+  <link rel="stylesheet" href="_ds/newpage-design-system-9bff4f93-a627-49a6-9dc5-db36bcf580e9/tokens/spacing.css">
+  <link rel="stylesheet" href="_ds/newpage-design-system-9bff4f93-a627-49a6-9dc5-db36bcf580e9/tokens/themes.css">
+  <link rel="stylesheet" href="_ds/newpage-design-system-9bff4f93-a627-49a6-9dc5-db36bcf580e9/styles.css">
+  <script src="_ds/newpage-design-system-9bff4f93-a627-49a6-9dc5-db36bcf580e9/_ds_bundle.js"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <style>
+    body { margin: 0; }
+    a { color: var(--text-link); }
+    a:hover { color: var(--np-teal); }
+    @keyframes np-spin { to { transform: rotate(360deg); } }
+    @keyframes np-shake { 0%,100%{ transform: translateX(0); } 10%,30%,50%,70%,90%{ transform: translateX(-6px); } 20%,40%,60%,80%{ transform: translateX(6px); } }
+    @keyframes np-toast-in { from { transform: translateY(12px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+    @keyframes np-fade-in { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+    .np-spin { animation: np-spin 0.9s linear infinite; display: inline-flex; }
+    .np-shake { animation: np-shake 0.45s ease-in-out; }
+    .np-fade { animation: np-fade-in 0.3s var(--ease); }
+    .np-icon svg { display: block; }
+    .np-table tr:hover td { background: var(--np-mist); }
+  </style>
+</helmet>
+
+<div style="min-height:100vh;display:flex;flex-direction:column;background:var(--surface-page);font-family:var(--font-body);color:var(--text-body);">
+
+  <!-- Masthead -->
+  <header style="position:sticky;top:0;z-index:20;background:var(--np-teal-ink);background-image:radial-gradient(ellipse 60% 100% at 100% 0%, rgba(8,189,184,0.22), transparent 60%);border-bottom:1px solid rgba(255,255,255,0.08);">
+    <div style="max-width:var(--container-wide);margin:0 auto;padding:16px 32px;display:flex;align-items:center;justify-content:space-between;gap:24px;">
+      <div style="display:flex;align-items:center;gap:12px;">
+        <svg class="np-icon" width="28" height="28" viewBox="0 0 100 100" fill="none">
+          <path d="M10 20 L55 50 L10 80 L26 50 Z" fill="var(--np-teal)"/>
+          <path d="M26 50 L55 50 L38 26 Z" fill="var(--np-deep-teal)"/>
+          <path d="M26 50 L55 50 L38 74 Z" fill="var(--np-orange)"/>
+          <path d="M55 50 L90 50 L72 30 Z" fill="var(--np-gold)"/>
+        </svg>
+        <span style="font-family:var(--font-display);font-weight:600;font-size:17px;letter-spacing:-0.3px;color:#fff;">Newpage <span style="color:var(--np-teal-soft);font-weight:500;">Demo Portal</span></span>
+      </div>
+      <nav style="display:flex;align-items:center;gap:6px;">
+        <button onclick="{{ goPortal }}" style="{{ navBtnStyle_portal }}">Portal</button>
+        <button onclick="{{ goAdmin }}" style="{{ navBtnStyle_admin }}">Admin</button>
+      </nav>
+    </div>
+  </header>
+
+  <!-- PORTAL VIEW -->
+  <sc-if value="{{ isPortalView }}" hint-placeholder-val="{{ true }}">
+    <main style="flex:1;display:flex;align-items:center;justify-content:center;padding:64px 24px;">
+      <div class="np-fade" style="width:100%;max-width:460px;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-lifted);padding:48px 40px;text-align:center;">
+
+        <sc-if value="{{ portalSuccess }}" hint-placeholder-val="{{ false }}">
+          <div>
+            <div style="width:56px;height:56px;border-radius:50%;background:var(--surface-tint);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+              <i class="np-icon" data-lucide="check-circle" style="color:var(--np-teal-700);" width="28" height="28"></i>
+            </div>
+            <h1 style="font-family:var(--font-display);font-size:24px;font-weight:600;letter-spacing:-0.5px;color:var(--text-strong);margin:0 0 8px;">Access granted</h1>
+            <p style="font-size:15px;color:var(--text-body);line-height:1.55;margin:0;">Redirecting you to <code style="font-family:var(--font-body);color:var(--text-link);font-size:13.5px;">/projects/{{ portalSlug }}/index.html</code></p>
+          </div>
+        </sc-if>
+        <sc-if value="{{ portalFormVisible }}" hint-placeholder-val="{{ true }}">
+          <div>
+            <svg class="np-icon" width="40" height="40" viewBox="0 0 100 100" fill="none" style="margin:0 auto 20px;">
+              <path d="M10 20 L55 50 L10 80 L26 50 Z" fill="var(--np-teal)"/>
+              <path d="M26 50 L55 50 L38 26 Z" fill="var(--np-deep-teal)"/>
+              <path d="M26 50 L55 50 L38 74 Z" fill="var(--np-orange)"/>
+              <path d="M55 50 L90 50 L72 30 Z" fill="var(--np-gold)"/>
+            </svg>
+            <div style="font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:2px;text-transform:uppercase;color:var(--np-teal-700);margin-bottom:10px;">Secure Access</div>
+            <h1 style="font-family:var(--font-display);font-size:30px;font-weight:600;letter-spacing:-1px;color:var(--text-strong);margin:0 0 10px;">Demo portal</h1>
+            <p style="font-size:15px;color:var(--text-body);line-height:1.55;margin:0 0 32px;">Enter your access code to view confidential client walkthroughs and pitch decks.</p>
+
+            <form onsubmit="{{ handlePortalSubmit }}" novalidate style="display:flex;flex-direction:column;gap:20px;text-align:left;">
+              <div class="{{ portalShakeClass }}">
+                <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Input" label="Access code" placeholder="e.g. NP-8X2K9" value="{{ accessCode }}" onChange="{{ handleAccessCodeChange }}" disabled="{{ portalDisabled }}" hint-size="100%,72px"></x-import>
+              </div>
+
+              <sc-if value="{{ portalError }}" hint-placeholder-val="{{ false }}">
+                <div style="display:flex;align-items:center;gap:8px;background:rgba(209,75,75,0.08);border:1px solid rgba(209,75,75,0.25);border-radius:var(--radius-sm);padding:10px 14px;color:var(--np-danger);font-size:13.5px;font-weight:500;">
+                  <i class="np-icon" data-lucide="alert-circle" width="16" height="16"></i>
+                  <span>{{ portalError }}</span>
+                </div>
+              </sc-if>
+
+              <button type="submit" disabled="{{ portalDisabled }}" style="{{ portalSubmitStyle }}">
+                <sc-if value="{{ portalLoading }}" hint-placeholder-val="{{ false }}">
+                  <span class="np-icon np-spin" style="display:inline-flex;"><i data-lucide="loader-2" width="16" height="16"></i></span>
+                </sc-if>
+                {{ portalSubmitLabel }}
+                <i class="np-icon" data-lucide="arrow-right" width="16" height="16"></i>
+              </button>
+            </form>
+          </div>
+        </sc-if>
+      </div>
+    </main>
+  </sc-if>
+
+  <!-- ADMIN VIEW -->
+  <sc-if value="{{ isAdminView }}" hint-placeholder-val="{{ false }}">
+    <main style="flex:1;padding:48px 24px;">
+
+      <!-- checking session -->
+      <sc-if value="{{ adminChecking }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:40vh;gap:14px;color:var(--text-body);">
+          <span class="np-icon np-spin"><i data-lucide="loader-2" width="28" height="28" style="color:var(--np-teal-700);"></i></span>
+          <p style="font-size:14.5px;font-weight:500;margin:0;">Checking session…</p>
+        </div>
+      </sc-if>
+
+      <!-- login gate -->
+      <sc-if value="{{ adminNeedsLogin }}" hint-placeholder-val="{{ false }}">
+        <div class="np-fade" style="max-width:400px;margin:40px auto;background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-lg);box-shadow:var(--shadow-lifted);padding:40px;text-align:center;">
+          <div style="width:48px;height:48px;border-radius:var(--radius-sm);background:var(--surface-tint);display:flex;align-items:center;justify-content:center;margin:0 auto 20px;">
+            <i class="np-icon" data-lucide="shield-check" width="22" height="22" style="color:var(--np-teal-700);"></i>
+          </div>
+          <h2 style="font-family:var(--font-display);font-size:22px;font-weight:600;color:var(--text-strong);margin:0 0 8px;">Admin sign-in</h2>
+          <p style="font-size:13.5px;color:var(--text-muted);margin:0 0 28px;">Authorized administrative access only. Access strictly logged.</p>
+
+          <form onsubmit="{{ handleAdminLoginSubmit }}" style="display:flex;flex-direction:column;gap:20px;text-align:left;">
+            <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Input" label="Console secret" type="password" placeholder="••••••••" value="{{ password }}" onChange="{{ handlePasswordChange }}" disabled="{{ authLoading }}" hint-size="100%,72px"></x-import>
+
+            <sc-if value="{{ authError }}" hint-placeholder-val="{{ false }}">
+              <div style="display:flex;align-items:center;gap:8px;background:rgba(209,75,75,0.08);border:1px solid rgba(209,75,75,0.25);border-radius:var(--radius-sm);padding:10px 14px;color:var(--np-danger);font-size:13.5px;font-weight:500;">
+                <i class="np-icon" data-lucide="alert-circle" width="16" height="16"></i>
+                <span>{{ authError }}</span>
+              </div>
+            </sc-if>
+
+            <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Button" variant="primary" size="md" dc-props="{{ adminLoginBtnProps }}" hint-size="100%,48px">{{ adminLoginLabel }}</x-import>
+          </form>
+        </div>
+      </sc-if>
+
+      <!-- dashboard -->
+      <sc-if value="{{ adminDashboard }}" hint-placeholder-val="{{ false }}">
+        <div class="np-fade" style="max-width:var(--container-wide);margin:0 auto;">
+
+          <div style="display:flex;align-items:flex-start;justify-content:space-between;gap:24px;flex-wrap:wrap;margin-bottom:32px;">
+            <div>
+              <div style="display:flex;align-items:center;gap:10px;margin-bottom:6px;">
+                <h1 style="font-family:var(--font-display);font-size:32px;font-weight:600;letter-spacing:-1px;color:var(--text-strong);margin:0;">Console</h1>
+                <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Tag" tone="teal" hint-size="auto,26px">Online</x-import>
+              </div>
+              <p style="font-size:14.5px;color:var(--text-muted);margin:0;">Telemetry orchestration, secure client codes, and deployment sync gateways.</p>
+            </div>
+            <div style="display:flex;gap:10px;">
+              <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Button" variant="outline" size="sm" dc-props="{{ syncBtnProps }}" hint-size="auto,40px">{{ syncBtnLabel }}</x-import>
+              <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Button" variant="ghost" size="sm" onClick="{{ handleLogout }}" style="{{ logoutStyle }}" hint-size="auto,40px">Log out</x-import>
+            </div>
+          </div>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px;margin-bottom:32px;">
+            <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);box-shadow:var(--shadow-soft);padding:24px;">
+              <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.StatBlock" value="{{ statTotal }}" suffix="" label="Total prototypes" size="{{ statSize }}" hint-size="auto,80px"></x-import>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12.5px;color:var(--text-muted);"><i class="np-icon" data-lucide="folder" width="14" height="14"></i>Assets synced in workspace</div>
+            </div>
+            <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);box-shadow:var(--shadow-soft);padding:24px;">
+              <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.StatBlock" value="{{ statActive }}" suffix="" label="Active handlers" color="var(--np-teal-700)" size="{{ statSize }}" hint-size="auto,80px"></x-import>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12.5px;color:var(--text-muted);"><i class="np-icon" data-lucide="check-circle" width="14" height="14" style="color:var(--np-teal-700);"></i>Gateway links authorized</div>
+            </div>
+            <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);box-shadow:var(--shadow-soft);padding:24px;">
+              <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.StatBlock" value="{{ statInactive }}" suffix="" label="Inactive records" color="var(--np-orange)" size="{{ statSize }}" hint-size="auto,80px"></x-import>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12.5px;color:var(--text-muted);"><i class="np-icon" data-lucide="pause-circle" width="14" height="14" style="color:var(--np-orange);"></i>Code redirections blocked</div>
+            </div>
+            <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);box-shadow:var(--shadow-soft);padding:24px;">
+              <div style="font-family:var(--font-body);font-size:12px;font-weight:500;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;">D1 database node</div>
+              <div style="font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--np-deep-teal);">demo-viewer</div>
+              <div style="display:flex;align-items:center;gap:6px;margin-top:10px;font-size:12.5px;color:var(--text-muted);"><i class="np-icon" data-lucide="database" width="14" height="14" style="color:var(--np-teal-700);"></i>Health status: connected</div>
+            </div>
+          </div>
+
+          <sc-if value="{{ errorMsg }}" hint-placeholder-val="{{ false }}">
+            <div style="display:flex;align-items:center;gap:8px;background:rgba(209,75,75,0.08);border:1px solid rgba(209,75,75,0.25);border-radius:var(--radius-sm);padding:12px 16px;color:var(--np-danger);font-size:13.5px;font-weight:500;margin-bottom:20px;">
+              <i class="np-icon" data-lucide="alert-circle" width="16" height="16"></i><span>{{ errorMsg }}</span>
+            </div>
+          </sc-if>
+
+          <div style="background:var(--surface-card);border:1px solid var(--border-default);border-radius:var(--radius-md);box-shadow:var(--shadow-soft);overflow:hidden;">
+            <div style="overflow-x:auto;">
+              <table class="np-table" style="width:100%;border-collapse:collapse;text-align:left;">
+                <thead>
+                  <tr>
+                    <th style="{{ thStyle }}">Asset</th>
+                    <th style="{{ thStyle }}">Routing target</th>
+                    <th style="{{ thStyle }}">Access code</th>
+                    <th style="{{ thStyle }}">State</th>
+                    <th style="{{ thStyle }}">Actions</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <sc-for list="{{ projects }}" as="p" hint-placeholder-count="5">
+                    <tr>
+                      <td style="{{ tdStyle }}">
+                        <div style="font-weight:600;font-size:14.5px;color:var(--text-strong);">{{ p.name }}</div>
+                        <div style="font-size:12.5px;color:var(--text-muted);margin-top:2px;">{{ p.description }}</div>
+                      </td>
+                      <td style="{{ tdStyle }}">
+                        <code style="font-family:var(--font-body);font-size:12.5px;color:var(--text-link);">/projects/{{ p.slug }}/index.html</code>
+                      </td>
+                      <td style="{{ tdStyle }}">
+                        <div style="display:flex;align-items:center;gap:6px;">
+                          <span style="{{ p.codeStyle }}">{{ p.access_code }}</span>
+                          <sc-if value="{{ p.isActive }}" hint-placeholder-val="{{ false }}">
+                            <button title="Edit access code" onclick="{{ p.onEditCode }}" style="{{ iconBtnStyle }}"><i class="np-icon" data-lucide="pencil" width="15" height="15"></i></button>
+                            <button title="Regenerate access code" onclick="{{ p.onRegenerate }}" style="{{ iconBtnStyle }}"><i class="np-icon" data-lucide="rotate-ccw" width="15" height="15"></i></button>
+                          </sc-if>
+                        </div>
+                      </td>
+                      <td style="{{ tdStyle }}">
+                        <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Tag" tone="{{ p.statusTone }}" hint-size="auto,24px">{{ p.statusLabel }}</x-import>
+                      </td>
+                      <td style="{{ tdStyle }}">
+                        <div style="display:flex;gap:6px;flex-wrap:wrap;">
+                          <button onclick="{{ p.onToggle }}" style="{{ smallBtnSecondary }}">{{ p.toggleLabel }}</button>
+                          <button onclick="{{ p.onEdit }}" style="{{ smallBtnSecondary }}">Edit</button>
+                          <button onclick="{{ p.onDelete }}" style="{{ smallBtnDanger }}">Delete</button>
+                        </div>
+                      </td>
+                    </tr>
+                  </sc-for>
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+    </main>
+  </sc-if>
+
+  <footer style="text-align:center;padding:28px 24px;font-size:12.5px;color:var(--text-muted);border-top:1px solid var(--border-default);font-family:var(--font-body);letter-spacing:0.3px;">
+    © 2026 Newpage Solutions. Confidential — secure connections monitored.
+  </footer>
+
+  <!-- Edit metadata modal -->
+  <sc-if value="{{ editingProject }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:rgba(6,48,46,0.5);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;">
+      <form onsubmit="{{ handleMetadataSave }}" style="background:var(--surface-card);border-radius:var(--radius-lg);width:100%;max-width:440px;padding:32px;box-shadow:var(--shadow-lifted);">
+        <h3 style="font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--text-strong);margin:0 0 20px;">Edit project details</h3>
+        <div style="margin-bottom:16px;">
+          <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Input" label="Project name" value="{{ editName }}" onChange="{{ handleEditNameChange }}" hint-size="100%,72px"></x-import>
+        </div>
+        <div style="margin-bottom:8px;">
+          <label style="display:block;font-size:13px;font-weight:500;color:var(--np-graphite);margin-bottom:6px;">Description</label>
+          <textarea value="{{ editDesc }}" onchange="{{ handleEditDescChange }}" style="width:100%;min-height:80px;padding:10px 12px;border:1px solid var(--border-default);border-radius:var(--radius-sm);font-family:var(--font-body);font-size:14.5px;color:var(--text-strong);resize:vertical;box-sizing:border-box;"></textarea>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">
+          <button type="button" onclick="{{ cancelEditProject }}" style="{{ smallBtnSecondaryLg }}">Cancel</button>
+          <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Button" variant="primary" size="sm" hint-size="auto,40px">Save changes</x-import>
+        </div>
+      </form>
+    </div>
+  </sc-if>
+
+  <!-- Edit code modal -->
+  <sc-if value="{{ editingCodeProject }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;inset:0;background:rgba(6,48,46,0.5);backdrop-filter:blur(4px);z-index:100;display:flex;align-items:center;justify-content:center;padding:24px;">
+      <form onsubmit="{{ handleCustomCodeSave }}" style="background:var(--surface-card);border-radius:var(--radius-lg);width:100%;max-width:400px;padding:32px;box-shadow:var(--shadow-lifted);">
+        <h3 style="font-family:var(--font-display);font-size:19px;font-weight:600;color:var(--text-strong);margin:0 0 20px;">Custom access code</h3>
+        <div style="margin-bottom:8px;">
+          <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Input" label="Enter code" value="{{ customCode }}" onChange="{{ handleCustomCodeChange }}" hint-size="100%,72px"></x-import>
+        </div>
+        <div style="display:flex;justify-content:flex-end;gap:10px;margin-top:20px;">
+          <button type="button" onclick="{{ cancelEditCode }}" style="{{ smallBtnSecondaryLg }}">Cancel</button>
+          <x-import component-from-global-scope="NewpageDesignSystem_9bff4f.Button" variant="primary" size="sm" hint-size="auto,40px">Update code</x-import>
+        </div>
+      </form>
+    </div>
+  </sc-if>
+
+  <!-- Toast -->
+  <sc-if value="{{ toastMsg }}" hint-placeholder-val="{{ false }}">
+    <div style="position:fixed;bottom:24px;right:24px;background:var(--np-teal-ink);color:#fff;padding:14px 20px;border-radius:var(--radius-md);font-size:13.5px;font-weight:500;box-shadow:var(--shadow-lifted);z-index:1000;display:flex;align-items:center;gap:10px;animation:np-toast-in 0.25s var(--ease);max-width:360px;">
+      <i class="np-icon" data-lucide="{{ toastIcon }}" width="16" height="16" style="color:var(--np-teal-soft);flex-shrink:0;"></i>
+      <span>{{ toastMsg }}</span>
+    </div>
+  </sc-if>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script>
+const MOCK_PROJECTS = [
+  { id: 1, name: 'Assurance Deck', slug: 'assurance-deck', description: 'Client assurance presentation deck', access_code: 'NP-8X2K9', active: 1 },
+  { id: 2, name: 'MVP Walkthrough', slug: 'mvp-walkthrough', description: 'Interactive MVP product walkthrough', access_code: 'NP-4M7QZ', active: 1 },
+  { id: 3, name: 'PFA Playwright Report', slug: 'pfa-playwright-report', description: 'Automated test coverage report', access_code: 'NP-P1AY7', active: 0 },
+  { id: 4, name: 'Platform Mockup', slug: 'platform-mockup', description: 'Platform UI mockup preview', access_code: 'NP-PLT44', active: 1 },
+  { id: 5, name: 'Vision Walkthrough', slug: 'vision-walkthrough', description: 'Product vision walkthrough deck', access_code: 'NP-V1S9N', active: 1 },
+];
+
+function randCode() {
+  const chars = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+  let s = 'NP-';
+  for (let i = 0; i < 5; i++) s += chars[Math.floor(Math.random() * chars.length)];
+  return s;
+}
+
+class Component extends DCLogic {
+  state = {
+    view: 'portal',
+    accessCode: '', portalLoading: false, portalError: '', portalSuccess: false, portalShake: false, portalSlug: '',
+    isAuthorized: null, password: '', authError: '', authLoading: false,
+    projects: MOCK_PROJECTS.map(p => ({ ...p })), syncing: false, toastMsg: '', toastIcon: 'check-circle', errorMsg: '',
+    editingProject: null, editName: '', editDesc: '',
+    editingCodeProject: null, customCode: '',
+  };
+
+  componentDidMount() { this.refreshIcons(); }
+  componentDidUpdate() { this.refreshIcons(); }
+  refreshIcons() { if (window.lucide) window.lucide.createIcons(); }
+
+  showToast(msg, icon) {
+    this.setState({ toastMsg: msg, toastIcon: icon || 'check-circle' });
+    clearTimeout(this._toastTimer);
+    this._toastTimer = setTimeout(() => this.setState({ toastMsg: '' }), 3500);
+  }
+
+  goPortal = () => this.setState({ view: 'portal' });
+  goAdmin = () => {
+    this.setState({ view: 'admin' });
+    if (this.state.isAuthorized === null) {
+      setTimeout(() => this.setState({ isAuthorized: false }), 500);
+    }
+  };
+
+  handleAccessCodeChange = (e) => this.setState({ accessCode: e.target.value, portalError: '' });
+
+  handlePortalSubmit = (e) => {
+    e.preventDefault();
+    const code = this.state.accessCode.trim();
+    if (!code) { this.triggerPortalError('Please enter an access code.'); return; }
+    this.setState({ portalLoading: true, portalError: '' });
+    setTimeout(() => {
+      const match = this.state.projects.find(p => p.access_code.toLowerCase() === code.toLowerCase() && p.active === 1);
+      if (match) {
+        this.setState({ portalLoading: false, portalSuccess: true, portalSlug: match.slug });
+      } else {
+        this.setState({ portalLoading: false });
+        this.triggerPortalError('Invalid access code. Please try again.');
+      }
+    }, 700);
+  };
+
+  triggerPortalError(msg) {
+    this.setState({ portalError: msg, portalShake: true });
+    setTimeout(() => this.setState({ portalShake: false }), 450);
+  }
+
+  handlePasswordChange = (e) => this.setState({ password: e.target.value, authError: '' });
+
+  handleAdminLoginSubmit = (e) => {
+    e.preventDefault();
+    if (!this.state.password.trim()) return;
+    this.setState({ authLoading: true, authError: '' });
+    setTimeout(() => {
+      if (this.state.password === 'newpage2026') {
+        this.setState({ authLoading: false, isAuthorized: true });
+      } else {
+        this.setState({ authLoading: false, authError: 'Invalid admin password.' });
+      }
+    }, 600);
+  };
+
+  handleLogout = () => {
+    this.setState({ isAuthorized: false, password: '' });
+    this.showToast('Logged out successfully.', 'log-out');
+  };
+
+  handleManualSync = () => {
+    this.setState({ syncing: true });
+    setTimeout(() => {
+      this.setState({ syncing: false });
+      this.showToast('Sync complete — 0 added, 0 removed, 0 updated.', 'refresh-cw');
+    }, 900);
+  };
+
+  toggleStatus(project) {
+    this.setState({
+      projects: this.state.projects.map(p => p.id === project.id ? { ...p, active: p.active === 1 ? 0 : 1 } : p)
+    });
+    this.showToast(`${project.name} ${project.active === 1 ? 'disabled' : 'enabled'}.`, 'check-circle');
+  }
+
+  regenerateCode(project) {
+    if (!window.confirm(`Regenerate the access code for "${project.name}"?`)) return;
+    const code = randCode();
+    this.setState({ projects: this.state.projects.map(p => p.id === project.id ? { ...p, access_code: code } : p) });
+    this.showToast('Access code regenerated.', 'rotate-ccw');
+  }
+
+  deleteProject(project) {
+    if (!window.confirm(`Delete the database mapping for "${project.name}"? If files still exist on GitHub, it may reappear on next sync.`)) return;
+    this.setState({ projects: this.state.projects.filter(p => p.id !== project.id) });
+    this.showToast('Database record deleted.', 'trash-2');
+  }
+
+  startEditDetails(project) { this.setState({ editingProject: project, editName: project.name, editDesc: project.description }); }
+  startEditCode(project) { this.setState({ editingCodeProject: project, customCode: project.access_code }); }
+  handleEditNameChange = (e) => this.setState({ editName: e.target.value });
+  handleEditDescChange = (e) => this.setState({ editDesc: e.target.value });
+  handleCustomCodeChange = (e) => this.setState({ customCode: e.target.value });
+  cancelEditProject = () => this.setState({ editingProject: null });
+  cancelEditCode = () => this.setState({ editingCodeProject: null });
+
+  handleMetadataSave = (e) => {
+    e.preventDefault();
+    if (!this.state.editName.trim()) return;
+    const id = this.state.editingProject.id;
+    this.setState({
+      projects: this.state.projects.map(p => p.id === id ? { ...p, name: this.state.editName, description: this.state.editDesc } : p),
+      editingProject: null,
+    });
+    this.showToast('Project details updated.', 'pencil');
+  };
+
+  handleCustomCodeSave = (e) => {
+    e.preventDefault();
+    if (!this.state.customCode.trim()) return;
+    const id = this.state.editingCodeProject.id;
+    this.setState({
+      projects: this.state.projects.map(p => p.id === id ? { ...p, access_code: this.state.customCode.trim() } : p),
+      editingCodeProject: null,
+    });
+    this.showToast('Access code updated.', 'check-circle');
+  };
+
+  renderVals() {
+    const s = this.state;
+    const navBtnBase = 'font-family:var(--font-display);font-weight:600;font-size:13.5px;padding:8px 16px;border-radius:var(--radius-sm);border:none;cursor:pointer;transition:background var(--dur-fast) var(--ease),color var(--dur-fast) var(--ease);';
+    const navBtnActive = navBtnBase + 'background:var(--np-teal);color:var(--np-teal-ink);';
+    const navBtnInactive = navBtnBase + 'background:transparent;color:rgba(247,248,250,0.72);';
+
+    const thStyle = 'padding:14px 20px;border-bottom:1px solid var(--border-default);color:var(--text-muted);font-size:11.5px;font-weight:600;text-transform:uppercase;letter-spacing:0.6px;background:var(--np-mist);font-family:var(--font-body);';
+    const tdStyle = 'padding:16px 20px;border-bottom:1px solid var(--border-default);vertical-align:middle;';
+    const iconBtnStyle = 'background:none;border:none;color:var(--text-muted);cursor:pointer;padding:5px;border-radius:6px;display:inline-flex;align-items:center;justify-content:center;';
+    const smallBtnBase = 'font-family:var(--font-display);font-weight:600;font-size:12.5px;padding:6px 12px;border-radius:var(--radius-sm);cursor:pointer;border:1px solid var(--border-default);background:var(--surface-card);color:var(--np-graphite);transition:background var(--dur-fast) var(--ease);';
+    const smallBtnDanger = smallBtnBase + 'color:var(--np-danger);border-color:rgba(209,75,75,0.3);';
+    const smallBtnSecondaryLg = smallBtnBase + 'padding:10px 18px;font-size:13.5px;';
+
+    const projects = s.projects.map(p => ({
+      ...p,
+      isActive: p.active === 1,
+      statusTone: p.active === 1 ? 'teal' : 'gray',
+      statusLabel: p.active === 1 ? 'Enabled' : 'Disabled',
+      toggleLabel: p.active === 1 ? 'Disable' : 'Enable',
+      codeStyle: `font-family:var(--font-body);font-size:13px;font-weight:600;letter-spacing:0.5px;background:var(--np-mist);padding:4px 10px;border-radius:var(--radius-sm);border:1px solid var(--border-default);color:${p.active === 1 ? 'var(--np-deep-teal)' : 'var(--text-muted)'};${p.active === 0 ? 'text-decoration:line-through;' : ''}`,
+      onToggle: () => this.toggleStatus(p),
+      onEdit: () => this.startEditDetails(p),
+      onDelete: () => this.deleteProject(p),
+      onEditCode: () => this.startEditCode(p),
+      onRegenerate: () => this.regenerateCode(p),
+    }));
+
+    return {
+      isPortalView: s.view === 'portal',
+      isAdminView: s.view === 'admin',
+      navBtnStyle_portal: s.view === 'portal' ? navBtnActive : navBtnInactive,
+      navBtnStyle_admin: s.view === 'admin' ? navBtnActive : navBtnInactive,
+      goPortal: this.goPortal, goAdmin: this.goAdmin,
+
+      portalSuccess: s.portalSuccess, portalFormVisible: !s.portalSuccess, portalSlug: s.portalSlug,
+      accessCode: s.accessCode, handleAccessCodeChange: this.handleAccessCodeChange,
+      portalError: s.portalError, portalLoading: s.portalLoading,
+      portalDisabled: s.portalLoading || s.portalSuccess,
+      portalShakeClass: s.portalShake ? 'np-shake' : '',
+      handlePortalSubmit: this.handlePortalSubmit,
+      portalSubmitLabel: s.portalSuccess ? 'Authorizing…' : s.portalLoading ? 'Verifying…' : 'Verify & enter',
+      portalSubmitStyle: `width:100%;font-family:var(--font-display);font-weight:600;font-size:15px;padding:13px 24px;border-radius:var(--radius-sm);border:none;cursor:pointer;background:var(--accent);color:var(--np-teal-ink);display:flex;align-items:center;justify-content:center;gap:8px;opacity:${(s.portalLoading || s.portalSuccess) ? 0.7 : 1};transition:background var(--dur-fast) var(--ease);`,
+
+      adminChecking: s.isAuthorized === null,
+      adminNeedsLogin: s.isAuthorized === false,
+      adminDashboard: s.isAuthorized === true,
+      password: s.password, handlePasswordChange: this.handlePasswordChange,
+      authError: s.authError, authLoading: s.authLoading,
+      handleAdminLoginSubmit: this.handleAdminLoginSubmit,
+      adminLoginLabel: s.authLoading ? 'Verifying…' : 'Sign in',
+      adminLoginBtnProps: { type: 'submit', disabled: s.authLoading, style: { width: '100%' } },
+
+      syncing: s.syncing,
+      syncBtnLabel: s.syncing ? 'Syncing…' : 'Sync GitHub',
+      syncBtnProps: { onClick: this.handleManualSync, disabled: s.syncing, icon: null },
+      logoutStyle: { color: 'var(--np-danger)' },
+      handleLogout: this.handleLogout,
+
+      statSize: 34,
+      statTotal: String(s.projects.length),
+      statActive: String(s.projects.filter(p => p.active === 1).length),
+      statInactive: String(s.projects.filter(p => p.active === 0).length),
+
+      errorMsg: s.errorMsg,
+      thStyle, tdStyle, iconBtnStyle,
+      smallBtnSecondary: smallBtnBase, smallBtnDanger, smallBtnSecondaryLg,
+      projects,
+
+      editingProject: s.editingProject, editName: s.editName, editDesc: s.editDesc,
+      handleEditNameChange: this.handleEditNameChange, handleEditDescChange: this.handleEditDescChange,
+      handleMetadataSave: this.handleMetadataSave, cancelEditProject: this.cancelEditProject,
+
+      editingCodeProject: s.editingCodeProject, customCode: s.customCode,
+      handleCustomCodeChange: this.handleCustomCodeChange,
+      handleCustomCodeSave: this.handleCustomCodeSave, cancelEditCode: this.cancelEditCode,
+
+      toastMsg: s.toastMsg, toastIcon: s.toastIcon,
+    };
+  }
+}
+
+</script>
+</body>
+</html>

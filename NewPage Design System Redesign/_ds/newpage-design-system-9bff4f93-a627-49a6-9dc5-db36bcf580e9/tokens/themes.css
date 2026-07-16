@@ -1,0 +1,36 @@
+/* ============================================================
+   NEWPAGE — THEME SCOPES
+   Two brand directions share one palette + type system. They differ
+   only at the page / hero / ink level. Set data-theme on a wrapper:
+
+     <div data-theme="deep-teal"> …   (default — cool canvas, dark teal hero)
+     <div data-theme="editorial"> …   (warm cream canvas, light hero, near-black ink)
+
+   Components stay identical across both (the teal-ink service card,
+   buttons, tags read the brand --np-* tokens directly). These tokens
+   theme the surrounding page and masthead.
+   Imported AFTER colors.css so they win for the page-level aliases.
+   ============================================================ */
+
+:root,
+[data-theme="deep-teal"] {
+  --surface-page:   var(--np-canvas);   /* cool gray app/page canvas */
+  --text-strong:    var(--np-teal-ink); /* primary ink */
+
+  /* Masthead / hero */
+  --hero-surface:   var(--np-teal-ink); /* dark teal block */
+  --hero-ink:       #F7F8FA;
+  --hero-ink-muted: rgba(247, 248, 250, 0.74);
+  --hero-eyebrow:   var(--np-gold);
+}
+
+[data-theme="editorial"] {
+  --surface-page:   var(--np-cream);    /* warm editorial canvas */
+  --text-strong:    var(--np-ink);      /* near-black ink */
+
+  /* Masthead / hero */
+  --hero-surface:   #F4F2EC;            /* light warm block (dot-grid texture) */
+  --hero-ink:       var(--np-ink);
+  --hero-ink-muted: var(--np-slate);
+  --hero-eyebrow:   var(--np-deep-teal);
+}

@@ -1,0 +1,35 @@
+/* ============================================================
+   NEWPAGE — SPACING, RADIUS & ELEVATION TOKENS
+   8-point spacing rhythm. Three corner radii (8/14/20).
+   Two soft shadows — elevation signals interactivity, not decoration.
+   ============================================================ */
+:root {
+  /* 8pt spacing scale */
+  --sp-1:  4px;
+  --sp-2:  8px;
+  --sp-3:  16px;
+  --sp-4:  24px;
+  --sp-5:  32px;
+  --sp-6:  40px;
+  --sp-7:  64px;
+  --sp-8:  96px;
+
+  /* Corner radii */
+  --radius-sm: 8px;   /* inputs, tags, small controls */
+  --radius-md: 14px;  /* cards, panels */
+  --radius-lg: 20px;  /* hero blocks, mastheads */
+  --radius-pill: 999px;
+
+  /* Elevation — two levels only */
+  --shadow-soft:   0 1px 3px rgba(14, 17, 22, 0.10);
+  --shadow-lifted: 0 10px 30px rgba(14, 17, 22, 0.14);
+
+  /* Layout */
+  --container: 1080px; /* @kind other */
+  --container-wide: 1240px; /* @kind other */
+
+  /* Motion — calm, precise. Ease-out, no bounce. */
+  --ease: cubic-bezier(0.22, 1, 0.36, 1); /* @kind other */
+  --dur-fast: 140ms; /* @kind other */
+  --dur: 220ms; /* @kind other */
+}
