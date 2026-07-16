@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/db';
+import { verifyAuth } from '@/lib/auth';
 
 export const runtime = 'edge';
 
@@ -21,6 +22,11 @@ function generateAccessCode(name) {
 
 export async function GET(request) {
   try {
+    const isAuth = await verifyAuth(request);
+    if (!isAuth) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const db = getDb();
     
     // 1. Fetch the static projects manifest generated at build time

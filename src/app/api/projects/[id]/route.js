@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/db';
+import { verifyAuth } from '@/lib/auth';
 
 export const runtime = 'edge';
 
@@ -21,6 +22,11 @@ function generateAccessCode(name) {
 // PATCH handles status toggling, code regeneration, and detail updates
 export async function PATCH(request, { params }) {
   try {
+    const isAuth = await verifyAuth(request);
+    if (!isAuth) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const db = getDb();
     const { id } = await params;
     const body = await request.json();
@@ -114,6 +120,11 @@ export async function PATCH(request, { params }) {
 // DELETE removes project metadata
 export async function DELETE(request, { params }) {
   try {
+    const isAuth = await verifyAuth(request);
+    if (!isAuth) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const db = getDb();
     const { id } = await params;
 

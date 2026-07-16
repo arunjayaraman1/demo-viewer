@@ -1,10 +1,16 @@
 import { NextResponse } from 'next/server';
 import { getDb } from '@/lib/db';
+import { verifyAuth } from '@/lib/auth';
 
 export const runtime = 'edge';
 
-export async function GET() {
+export async function GET(request) {
   try {
+    const isAuth = await verifyAuth(request);
+    if (!isAuth) {
+      return NextResponse.json({ success: false, error: 'Unauthorized' }, { status: 401 });
+    }
+
     const db = getDb();
     
     // Select all projects, sorted by creation date

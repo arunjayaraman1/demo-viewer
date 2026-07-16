@@ -25,10 +25,6 @@ export default function RootLayout({ children }) {
             <Link href="/" className="logo">
               Demo Portal
             </Link>
-            <nav className="nav-links">
-              <Link href="/" className="nav-link">Portal</Link>
-              <Link href="/admin" className="nav-link">Admin Console</Link>
-            </nav>
           </div>
         </header>
 

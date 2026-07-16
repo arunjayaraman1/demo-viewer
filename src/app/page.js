@@ -78,9 +78,9 @@ export default function PortalPage() {
               <path d="M35 50L45 60L65 40" stroke="url(#logo-grad)" strokeWidth="8" strokeLinecap="round" strokeLinejoin="round" />
             </svg>
           </div>
-          <h1 className="portal-title">Client Demo Portal</h1>
+          <h1 className="portal-title">Enterprise Demo Portal</h1>
           <p className="portal-subtitle">
-            Enter your secure access code to view custom decks and walkthroughs.
+            Secure client telemetry gateway. Enter authorization key to view confidential assets.
           </p>
         </div>
 
