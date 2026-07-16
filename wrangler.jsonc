@@ -2,16 +2,12 @@
   "$schema": "node_modules/wrangler/config-schema.json",
   "name": "demo-viewer",
   "compatibility_date": "2026-07-16",
+  "pages_build_output_dir": ".vercel/output/static",
   "compatibility_flags": [
     "nodejs_compat"
   ],
   "observability": {
     "enabled": true
-  },
-  "main": ".vercel/output/static/_worker.js/index.js",
-  "assets": {
-    "binding": "ASSETS",
-    "directory": ".vercel/output/static"
   },
   "d1_databases": [
     {
