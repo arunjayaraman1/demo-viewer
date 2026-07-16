@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "node scripts/generate-manifest.js && next dev",
     "build": "node scripts/generate-manifest.js && next build",
-    "build-pages": "node scripts/generate-manifest.js && npx @cloudflare/next-on-pages && echo \"_worker.js\" > .vercel/output/static/.assetsignore",
+    "build-pages": "node scripts/generate-manifest.js && npx @cloudflare/next-on-pages && echo \"\" > .vercel/output/static/.assetsignore",
     "start": "next start",
     "lint": "eslint"
   },
