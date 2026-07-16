@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "dev": "node scripts/generate-manifest.js && next dev",
-    "build": "node scripts/generate-manifest.js && next build",
+    "build": "node scripts/generate-manifest.js && npx @cloudflare/next-on-pages",
     "build-pages": "node scripts/generate-manifest.js && npx @cloudflare/next-on-pages",
     "start": "next start",
     "lint": "eslint"
