@@ -23,28 +23,36 @@ try {
 
   for (const folder of folders) {
     const configPath = path.join(projectsDir, folder, 'project.json');
+    let name = '';
+    let slug = folder;
+    let description = '';
+
     if (fs.existsSync(configPath)) {
       try {
         const configContent = fs.readFileSync(configPath, 'utf-8');
         const projectData = JSON.parse(configContent);
-        
-        // Basic validation of fields
-        if (projectData.name && projectData.slug) {
-          manifest.push({
-            name: projectData.name,
-            slug: projectData.slug,
-            description: projectData.description || ''
-          });
-          console.log(`- Loaded metadata for: ${projectData.slug}`);
-        } else {
-          console.warn(`[Warning] Skipping ${folder}: project.json missing required fields.`);
-        }
+        name = projectData.name || '';
+        slug = projectData.slug || folder;
+        description = projectData.description || '';
       } catch (err) {
         console.error(`[Error] Failed to parse project.json in ${folder}:`, err.message);
       }
-    } else {
-      console.warn(`[Warning] Skipping ${folder}: No project.json found.`);
     }
+
+    // Fallback: Guess name from folder slug if project.json is missing or empty
+    if (!name) {
+      name = folder
+        .split(/[-_]+/)
+        .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+        .join(' ');
+    }
+
+    manifest.push({
+      name,
+      slug,
+      description: description || 'Interactive client preview walkthrough.'
+    });
+    console.log(`- Loaded metadata for: ${slug} ("${name}")`);
   }
 
   // Ensure public folder exists
