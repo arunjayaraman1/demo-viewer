@@ -16,8 +16,8 @@
   "d1_databases": [
     {
       "binding": "DB",
-      "database_name": "demo-portal-db",
-      "database_id": "bfd0d7b2-ec90-41ab-85cf-255d8f63ab8f"
+      "database_name": "demo-viewer",
+      "database_id": "1d7b5f94-5802-4b0d-b3b5-a8509b6683c3"
     }
   ]
 }
