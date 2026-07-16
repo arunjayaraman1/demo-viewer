@@ -1,12 +1,20 @@
 import { NextResponse } from 'next/server';
 import { sha256 } from '@/lib/auth';
+import { getRequestContext } from '@cloudflare/next-on-pages';
 
 export const runtime = 'edge';
 
 export async function POST(request) {
   try {
     const { password } = await request.json();
-    const adminPassword = process.env.ADMIN_PASSWORD || 'admin';
+    
+    let adminPassword = 'admin';
+    try {
+      const context = getRequestContext();
+      adminPassword = context.env.ADMIN_PASSWORD || adminPassword;
+    } catch (err) {
+      console.warn("login API: Could not load request context, using fallback.", err.message);
+    }
 
     if (password === adminPassword) {
       const hashedSession = await sha256(adminPassword);

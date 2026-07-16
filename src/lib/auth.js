@@ -1,3 +1,5 @@
+import { getRequestContext } from '@cloudflare/next-on-pages';
+
 /**
  * Hashing helper using standard Web Crypto API (fully compatible with Cloudflare Edge).
  */
@@ -13,7 +15,14 @@ export async function sha256(message) {
  * Checks if the request contains a valid admin_session cookie matching the hashed ADMIN_PASSWORD.
  */
 export async function verifyAuth(request) {
-  const adminPassword = process.env.ADMIN_PASSWORD || 'admin'; // fallback default for local dev
+  let adminPassword = 'admin';
+  try {
+    const context = getRequestContext();
+    adminPassword = context.env.ADMIN_PASSWORD || adminPassword;
+  } catch (err) {
+    console.warn("verifyAuth: Could not load request context, using fallback.", err.message);
+  }
+
   const expectedHash = await sha256(adminPassword);
 
   const cookieHeader = request.headers.get('cookie') || '';
